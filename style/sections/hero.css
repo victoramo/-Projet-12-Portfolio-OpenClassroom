@@ -1,0 +1,168 @@
+/* ======================================
+   HERO / HOME — Composant
+   HTML attendu :
+   <section id="home" class="hero">
+     <div class="hero-content-box">
+       <p class="kicker">...</p>
+       <h1 class="main-title">...</h1>
+       <p class="hero-subtitle">...</p>
+       <div class="hero-btns">...</div>
+       <div class="hero-socials">...</div>
+     </div>
+     <div class="hero-image-container">
+       <img class="hero-image" ...>
+     </div>
+   </section>
+====================================== */
+
+#home.hero {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: calc(var(--nav-h, 76px) + 30px) 10% 60px;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+/* glow décoratif */
+#home.hero::before,
+#home.hero::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(0, 123, 255, 0.28), rgba(0, 200, 255, 0.1));
+  filter: blur(80px);
+  opacity: 0.6;
+  z-index: 0;
+}
+#home.hero::before {
+  width: 220px;
+  height: 220px;
+  top: 6%;
+  left: -6%;
+  transform: rotate(30deg);
+}
+#home.hero::after {
+  width: 320px;
+  height: 320px;
+  bottom: -12%;
+  right: -12%;
+  transform: rotate(-45deg);
+}
+
+/* bloc texte */
+#home .hero-content-box {
+  background: var(--glass, rgba(255, 255, 255, 0.08));
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.16));
+  border-radius: var(--radius-lg, 22px);
+  box-shadow: var(--shadow, 0 8px 32px rgba(0, 0, 0, 0.37));
+  backdrop-filter: blur(15px);
+
+  max-width: 560px;
+  width: 100%;
+  padding: 40px 46px;
+  z-index: 1;
+}
+
+#home .kicker {
+  font-size: 0.92rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-2, rgba(255, 255, 255, 0.6));
+  margin-bottom: 10px;
+}
+
+#home .main-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0 0 16px 0;
+  color: var(--text, #fff);
+}
+
+#home .hero-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted, rgba(255, 255, 255, 0.78));
+  margin-bottom: 24px;
+}
+
+#home .hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+#home .hero-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* image */
+#home .hero-image-container {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+#home .hero-image {
+  max-height: 86vh;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(0, 123, 255, 0.35));
+  transform: scale(1.03);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 992px) {
+  #home.hero {
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    padding: calc(var(--nav-h, 76px) + 24px) 6% 60px;
+  }
+
+  #home .hero-content-box {
+    max-width: 720px;
+    padding: 30px;
+    text-align: left;
+  }
+
+  #home .hero-image {
+    max-height: 70vh;
+    transform: none;
+  }
+}
+
+@media (max-width: 425px) {
+  #home .hero-content-box {
+    padding: 22px;
+  }
+
+  #home .main-title {
+    font-size: clamp(1.75rem, 7vw, 2.3rem);
+  }
+
+  #home .hero-subtitle {
+    font-size: 0.98rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #home.hero::before,
+  #home.hero::after {
+    filter: none;
+  }
+  #home .hero-image {
+    transform: none;
+  }
+}

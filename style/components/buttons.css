@@ -1,0 +1,77 @@
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.my-btn {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--color-accent);
+  border: 2px solid var(--color-accent);
+
+  padding: var(--spacing-s) var(--spacing-m);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+
+  font-size: 1.25rem;
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 100%;
+  margin: 10px;
+}
+
+.my-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-buttons);
+}
+
+/* ===== TABLETTE : max 768px ===== */
+@media (max-width: 768px) {
+
+  .btn-container {
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+
+/* ===== MOBILE LARGE : max 425px ===== */
+@media (max-width: 425px) {
+
+  .my-btn {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    min-width: auto;
+    width: 100%;
+    max-width: 280px;
+    margin: 6px;
+  }
+}
+
+
+/* ===== MOBILE PETIT : max 320px ===== */
+@media (max-width: 320px) {
+
+  .my-btn {
+    font-size: 0.95rem;
+    padding: 0.5rem 0.8rem;
+    max-width: 260px;
+    margin: 3px;
+  }
+
+  .btn-container {
+    padding: 0 1rem;
+  }
+}

@@ -1,0 +1,305 @@
+[
+  {
+    "id": "p02-riding-cities",
+    "categorie": "Développement",
+    "tags": ["HTML", "CSS", "Responsive", "Accessibilité"],
+    "image": "public_data/Project/Riding-Cities.png",
+    "alt": "Capture d’écran du projet Riding Cities",
+    "title": "Riding Cities",
+    "summary": "Intégration d’une section web à partir d’une maquette Figma, pour une association.",
+    "objective": "Concevoir une section accessible et responsive à intégrer dans un site existant.",
+    "work-done": [
+      "Structuration du contenu en HTML sémantique",
+      "Intégration CSS à partir d’un design Figma",
+      "Ajout d’interactions simples (hover, liens)",
+      "Respect des bonnes pratiques d’accessibilité"
+    ],
+    "workDone": [
+      "Structuration du contenu en HTML sémantique",
+      "Intégration CSS à partir d’un design Figma",
+      "Ajout d’interactions simples (hover, liens)",
+      "Respect des bonnes pratiques d’accessibilité"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-02-Riding-Cities.git",
+    "lien_demo": "https://mariec2023.github.io/OCProject2/",
+    "downloads": [
+      {
+        "label": "Présentation du projet 2",
+        "file": "public_data/docs/Presentation_P2.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p03-booki",
+    "categorie": "Développement",
+    "tags": ["HTML", "CSS", "Responsive", "Figma"],
+    "image": "public_data/Project/BOOKI.png",
+    "alt": "Capture d’écran du projet Booki",
+    "title": "Booki",
+    "summary": "Intégration d’un site responsive à partir d’une maquette Figma pour une agence de voyage fictive.",
+    "objective": "Transformer une maquette en site web accessible et adaptable à tous les écrans.",
+    "work-done": [
+      "Structuration du contenu avec HTML sémantique",
+      "Mise en page responsive en CSS",
+      "Fidélité au design Figma fourni",
+      "Compatibilité multi-écrans"
+    ],
+    "workDone": [
+      "Structuration du contenu avec HTML sémantique",
+      "Mise en page responsive en CSS",
+      "Fidélité au design Figma fourni",
+      "Compatibilité multi-écrans"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-03-Booki.git",
+    "lien_demo": "https://victoramo.github.io/P3-Booki/",
+    "downloads": [
+      {
+        "label": "Présentation du projet 3",
+        "file": "public_data/docs/Presentation_P3.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p04-jse-avocats",
+    "categorie": "Test",
+    "tags": ["Recette", "Cahier de recette", "Anomalies", "Reporting"],
+    "image": "public_data/Project/JSE-AVOCAT.png",
+    "alt": "Capture d’écran du site JSE Avocats utilisé pour la campagne de tests",
+    "title": "JSE Avocats",
+    "summary": "Campagne de tests fonctionnels sur un site web, dans un contexte professionnel simulé.",
+    "objective": "Valider les fonctionnalités existantes à l’aide d’un cahier de recette.",
+    "work-done": [
+      "Exécution pas-à-pas des cas de test définis",
+      "Tests exploratoires complémentaires",
+      "Suivi des résultats (OK/KO) et description des anomalies"
+    ],
+    "workDone": [
+      "Exécution pas-à-pas des cas de test définis",
+      "Tests exploratoires complémentaires",
+      "Suivi des résultats (OK/KO) et description des anomalies"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-04-JSE-Avocats.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 4",
+        "file": "public_data/docs/Presentation_P4.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p05-724events",
+    "categorie": "Test",
+    "tags": ["Exploratoire", "Jira", "Reporting", "Recette"],
+    "image": "public_data/Project/724events.png",
+    "alt": "Capture d’écran du projet 724events",
+    "title": "724events",
+    "summary": "Campagne de tests exploratoires.",
+    "objective": "Structurer les tests, assurer leur traçabilité, produire un reporting clair.",
+    "work-done": [
+      "Conception et exécution de tests exploratoires",
+      "Suivi des anomalies et des cas de test dans Jira",
+      "Rédaction d’un bilan de campagne"
+    ],
+    "workDone": [
+      "Conception et exécution de tests exploratoires",
+      "Suivi des anomalies et des cas de test dans Jira",
+      "Rédaction d’un bilan de campagne"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-05-724events.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 5",
+        "file": "public_data/docs/Presentation_P5.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p06-print-it",
+    "categorie": "Développement",
+    "tags": ["JavaScript", "DOM", "Accessibilité", "Debug"],
+    "image": "public_data/Project/Print-it.png",
+    "alt": "Capture d’écran du projet Print it",
+    "title": "Print it",
+    "summary": "Développement d’un carrousel interactif en JavaScript.",
+    "objective": "Rendre l’interface dynamique et accessible sans dépendance externe.",
+    "work-done": [
+      "Manipulation du DOM en JavaScript natif",
+      "Gestion des événements utilisateur (clics, clavier)",
+      "Conditions de navigation et transitions"
+    ],
+    "workDone": [
+      "Manipulation du DOM en JavaScript natif",
+      "Gestion des événements utilisateur (clics, clavier)",
+      "Conditions de navigation et transitions"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-06-Print-it.git",
+    "lien_demo": "https://victoramo.github.io/-Projet-06-Print-it-/",
+    "downloads": [
+      {
+        "label": "Présentation du projet 6",
+        "file": "public_data/docs/Presentation_P6.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p07-sophie-bluel",
+    "categorie": "Développement",
+    "tags": ["JavaScript", "API", "Authentification", "Modale"],
+    "image": "public_data/Project/Sophie-Bluel.png",
+    "alt": "Capture d’écran du projet Sophie Bluel",
+    "title": "Sophie Bluel",
+    "summary": "Ajout de fonctionnalités dynamiques à un site existant.",
+    "objective": "Structurer le JavaScript et intégrer des fonctionnalités interactives.",
+    "work-done": [
+      "Galerie filtrable et modale d’administration",
+      "Gestion du DOM et des événements",
+      "Requêtes API (authentification + contenus)"
+    ],
+    "workDone": [
+      "Galerie filtrable et modale d’administration",
+      "Gestion du DOM et des événements",
+      "Requêtes API (authentification + contenus)"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-07-Sophie-Bluel.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 7",
+        "file": "public_data/docs/Presentation_P7.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p08-kasa",
+    "categorie": "Développement",
+    "tags": ["React", "Router", "Composants"],
+    "image": "public_data/Project/Kasa.png",
+    "alt": "Capture d’écran du projet Kasa",
+    "title": "Kasa",
+    "summary": "Développement d’une application de location immobilière avec React.",
+    "objective": "Structurer un projet front-end complet avec React.",
+    "work-done": [
+      "Création de composants réutilisables",
+      "Mise en place du routage",
+      "Animations CSS et amélioration UX"
+    ],
+    "workDone": [
+      "Création de composants réutilisables",
+      "Mise en place du routage",
+      "Animations CSS et amélioration UX"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-08-Kasa.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 8",
+        "file": "public_data/docs/Presentation_P8.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p09-menu-maker",
+    "categorie": "Gestion de projet",
+    "tags": ["Agile", "Spécifications", "Kanban"],
+    "image": "public_data/Project/Menu-Maker-by-Qwenta.png",
+    "alt": "Capture d’écran du projet Menu Maker by Qwenta",
+    "title": "Menu Maker by Qwenta",
+    "summary": "Planification et gestion agile d’un projet web.",
+    "objective": "Cadrer le développement complet d’un site web via une démarche agile.",
+    "work-done": [
+      "Rédaction des spécifications techniques et fonctionnelles",
+      "Mise en place d’un Kanban structuré",
+      "Organisation et suivi du projet de A à Z"
+    ],
+    "workDone": [
+      "Rédaction des spécifications techniques et fonctionnelles",
+      "Mise en place d’un Kanban structuré",
+      "Organisation et suivi du projet de A à Z"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-09-Menu-Maker-by-Qwenta.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 9",
+        "file": "public_data/docs/Presentation_P9.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p10-eco-bliss-bath",
+    "categorie": "Test",
+    "tags": ["Cypress", "API", "Sécurité", "Automatisation"],
+    "image": "public_data/Project/Eco-Bliss-Bath.webp",
+    "alt": "Capture d’écran du site e-commerce Eco Bliss Bath",
+    "title": "Eco Bliss Bath",
+    "summary": "Tests automatisés avec Cypress sur un site e-commerce.",
+    "objective": "Renforcer la couverture des tests et fournir des livrables exploitables par l’équipe QA.",
+    "work-done": [
+      "Tests fonctionnels, API et sécurité (XSS)",
+      "Automatisation des scénarios de tests",
+      "Rapports de test clairs pour le suivi qualité"
+    ],
+    "workDone": [
+      "Tests fonctionnels, API et sécurité (XSS)",
+      "Automatisation des scénarios de tests",
+      "Rapports de test clairs pour le suivi qualité"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-10-Eco-Bliss-Bath.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 10",
+        "file": "public_data/docs/Presentation_P10.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p11-tomsen",
+    "categorie": "Test",
+    "tags": ["Test", "Gestion de projet", "Agile", "Cahier de recette"],
+    "image": "public_data/Project/Tomsen-by-PayForge.png",
+    "alt": "Capture d’écran du projet Tomsen by PayForge",
+    "title": "Tomsen by PayForge",
+    "summary": "Stratégie de test en contexte Agile.",
+    "objective": "Structurer une démarche qualité globale adaptée aux enjeux métier.",
+    "work-done": [
+      "Revue des exigences et planification des sprints",
+      "Rédaction du cahier de recette et des scénarios de test"
+    ],
+    "workDone": [
+      "Revue des exigences et planification des sprints",
+      "Rédaction du cahier de recette et des scénarios de test"
+    ],
+    "lien_github": "https://github.com/victoramo/-Projet-11-Tomsen-by-PayForge.git",
+    "downloads": [
+      {
+        "label": "Présentation du projet 11",
+        "file": "public_data/docs/Presentation_P11.pdf"
+      }
+    ]
+  },
+  {
+    "id": "p12-portfolio",
+    "categorie": "Développement",
+    "tags": ["HTML", "CSS", "JavaScript", "SEO", "Accessibilité"],
+    "image": "public_data/Project/portfolio.png",
+    "alt": "Capture d’écran du portfolio",
+    "title": "Portfolio",
+    "summary": "Création de mon portfolio personnel.",
+    "objective": "Valoriser mon parcours, mes projets et démontrer mes compétences en développement et test logiciel.",
+    "work-done": [
+      "Conception en HTML/CSS/JS",
+      "Données dynamiques via JSON",
+      "Mise en avant des projets et compétences"
+    ],
+    "workDone": [
+      "Conception en HTML/CSS/JS",
+      "Données dynamiques via JSON",
+      "Mise en avant des projets et compétences"
+    ],
+    "lien_github": "https://github.com/victoramo/Portfolio-QA-BOUKERSI.git",
+    "lien_demo": "https://qa-portfolio-for-qpaqmzvr7-victoramos-projects-fc5cfe26.vercel.app/",
+    "downloads": [
+      {
+        "label": "Présentation du projet 12",
+        "file": "public_data/docs/Presentation_P12.pdf"
+      }
+    ]
+  }
+]

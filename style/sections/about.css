@@ -1,0 +1,107 @@
+/* ======================================
+   ABOUT — Composant (adapté au projet)
+   HTML attendu :
+   <section id="about" class="about">
+     <div class="section-head">...</div>
+     <div class="about-container">
+       <article class="about-text">...</article>
+       <aside class="about-cards">...</aside>
+     </div>
+   </section>
+====================================== */
+
+#about {
+  padding: 90px 0;
+}
+
+/* Grid déjà présent dans ton style global, on le sécurise */
+#about .about-container {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 26px;
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
+  padding: 0 10%;
+}
+
+/* Option : si tu ajoutes une image dans about-text
+   <img class="about-avatar" ...> */
+#about .about-avatar {
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  border-radius: 999px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+  display: block;
+  margin: 0 0 18px;
+}
+
+body.light-theme #about .about-avatar {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Texte */
+#about .about-text p,
+#about .about-text li {
+  font-size: 1.06rem;
+  line-height: 1.7;
+  color: var(--muted, rgba(255, 255, 255, 0.78));
+}
+
+/* Listes */
+#about .about-text ul {
+  padding-left: 18px;
+  margin: 12px 0 0;
+}
+
+/* Cards colonne droite */
+#about .about-cards .info-card p {
+  font-size: 1.02rem;
+}
+
+/* ===== TABLETTE : max 991px ===== */
+@media (max-width: 991px) {
+  #about .about-container {
+    grid-template-columns: 1fr;
+    padding: 0 6%;
+  }
+
+  /* Si tu utilises l’avatar : centre-le */
+  #about .about-avatar {
+    margin: 0 auto 18px;
+    max-width: 220px;
+  }
+
+  #about .about-text {
+    text-align: left;
+  }
+
+  #about .about-text p,
+  #about .about-text li {
+    font-size: 1.05rem;
+  }
+}
+
+/* ===== MOBILE LARGE : max 425px ===== */
+@media (max-width: 425px) {
+  #about .about-avatar {
+    max-width: 190px;
+  }
+
+  #about .about-text p,
+  #about .about-text li {
+    font-size: 1rem;
+  }
+}
+
+/* ===== MOBILE PETIT : max 320px ===== */
+@media (max-width: 320px) {
+  #about .about-avatar {
+    max-width: 150px;
+  }
+
+  #about .about-text p,
+  #about .about-text li {
+    font-size: 0.95rem;
+  }
+}

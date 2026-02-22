@@ -1,0 +1,18 @@
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/fonts.css');
+@import url('./base/general.css');
+
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+@import url('./components/modals.css');
+@import url('./components/timeline.css');
+
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+
+@import url('./sections/hero.css');
+@import url('./sections/about.css');
+@import url('./sections/experiences.css');
+@import url("./sections/skills.css");
+@import url('./sections/contact.css');

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Aomar Boukersi | Consultant QA (Orientation Automatisation)</title>
+    <meta
+      name="description"
+      content="Portfolio de Aomar Boukersi, Consultant QA (orientation automatisation) : tests fonctionnels, stratégie de test, non-régression, API/SQL, D365, projets OpenClassrooms."
+    />
+
+    <!-- CSS global (ton style.css importe main.css) -->
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon (✅ LOGO.gif en majuscule) -->
+    <link rel="icon" href="./public_data/assets/LOGO.gif" type="image/gif" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Aller au contenu</a>
+    <div id="stars" aria-hidden="true"></div>
+
+    <!-- NAV -->
+    <header class="site-header">
+      <nav class="navbar" aria-label="Navigation principale">
+        <a class="logo" href="#home" aria-label="Retour à l'accueil">
+          <img
+            src="./public_data/assets/LOGO.gif"
+            alt="Logo Aomar Boukersi"
+            class="nav-logo"
+            loading="eager"
+          />
+        </a>
+
+        <button
+          class="burger"
+          type="button"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          <span class="line1" aria-hidden="true"></span>
+          <span class="line2" aria-hidden="true"></span>
+          <span class="line3" aria-hidden="true"></span>
+        </button>
+
+        <ul id="navLinks" class="nav-links">
+          <li><a href="#home">Accueil</a></li>
+          <li><a href="#about">Profil</a></li>
+          <li><a href="#experience">Expériences</a></li>
+          <li><a href="#projects">Projets</a></li>
+          <li><a href="#skills">Compétences</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle-btn"
+          type="button"
+          aria-label="Changer le thème"
+          aria-pressed="false"
+          title="Changer le thème"
+        >
+          <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+        </button>
+
+        <a class="nav-cta" href="./public_data/CV/cv.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+          <span>Télécharger CV</span>
+        </a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <!-- HERO -->
+      <section id="home" class="hero" aria-labelledby="heroTitle">
+        <div class="hero-content-box">
+          <p class="kicker">Consultant QA • Orientation Automatisation</p>
+
+          <h1 id="heroTitle" class="main-title">Aomar Boukersi</h1>
+
+          <p class="hero-subtitle">
+            QA end-to-end : exigences → scénarios → non-régression → anomalies → Go/No-Go.<br />
+            Expérience transformation SI Microsoft Dynamics 365 (ERP/CRM/Field Service) + interfaces Finance & Logistique.
+          </p>
+
+          <div class="hero-btns" role="group" aria-label="Actions principales">
+            <a class="btn primary" href="#projects">
+              Voir mes projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+
+            <a class="btn secondary" href="#contact">
+              Me contacter <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            </a>
+
+            <a class="btn ghost" href="./public_data/CV/cv.pdf" target="_blank" rel="noopener noreferrer">
+              Télécharger mon CV <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="hero-socials" aria-label="Réseaux">
+            <a class="btn-icon" href="mailto:boukersi.aomar@gmail.com" aria-label="Email">
+              <i class="fa-solid fa-at" aria-hidden="true"></i>
+            </a>
+            <a class="btn-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a class="btn-icon" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image-container">
+          <img
+            src="./public_data/assets/portfolio.png"
+            alt="Illustration représentant un consultant QA"
+            class="hero-image"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="about" aria-labelledby="aboutTitle">
+        <div class="section-head">
+          <h2 id="aboutTitle">Profil</h2>
+          <p class="section-subtitle">
+            Testeur fonctionnel certifié ISTQB, avec une montée en compétence structurée en automatisation.
+          </p>
+        </div>
+
+        <div class="about-container">
+          <article class="about-text">
+            <h3>À propos de moi</h3>
+            <p>
+              Testeur fonctionnel certifié ISTQB, j’accompagne des projets à forts enjeux en sécurisant la qualité produit
+              de bout en bout : revue d’exigences, conception et exécution de scénarios, non-régression, gestion des anomalies
+              et pilotage des critères Go/No-Go.
+            </p>
+            <p>
+              J’ai une expérience terrain sur un programme de transformation SI (projet HERMES) avec migration vers Microsoft
+              Dynamics 365 (ERP/CRM/Field Service) et des interfaces Finance/Logistique.
+            </p>
+            <p>
+              Je monte progressivement en compétence en automatisation (Cypress/Playwright) et je m’intéresse à l’IA appliquée
+              au test pour industrialiser et anticiper les standards qualité.
+            </p>
+
+            <ul class="highlights" aria-label="Points forts">
+              <li><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Stratégie de test, couverture, Go/No-Go</li>
+              <li><i class="fa-solid fa-diagram-project" aria-hidden="true"></i> D365 ERP/CRM/Field Service + interfaces</li>
+              <li><i class="fa-solid fa-bug" aria-hidden="true"></i> Anomalies : qualification, preuves, retest</li>
+              <li><i class="fa-solid fa-robot" aria-hidden="true"></i> Automatisation (Cypress/Playwright) en progression</li>
+            </ul>
+          </article>
+
+          <aside class="about-cards" aria-label="Informations clés">
+            <div class="info-card">
+              <h3>Localisation</h3>
+              <p>Île-de-France</p>
+            </div>
+            <div class="info-card">
+              <h3>Langues</h3>
+              <p>Français (natif), Anglais (professionnel limité)</p>
+            </div>
+            <div class="info-card">
+              <h3>Domaines</h3>
+              <p>ERP/CRM (D365), Web, Mobile, E-commerce, AdTech, Assurance santé</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="experience" aria-labelledby="experienceTitle">
+        <div class="section-head">
+          <h2 id="experienceTitle">Expériences</h2>
+          <p class="section-subtitle">Focus : transformation SI, web, mobile, et industrialisation du suivi QA.</p>
+        </div>
+
+        <div id="experienceTimeline" class="timeline" aria-label="Timeline des expériences"></div>
+
+
+      </section>
+
+      <!-- ✅ PROJECTS (corrigé : plus de duplication) -->
+      <section id="projects" class="projects" aria-labelledby="projectsTitle">
+  <div class="section-head">
+    <h2 id="projectsTitle">Projets</h2>
+  </div>
+
+  <div id="portfolioFilters" class="btn-container" aria-label="Filtres projets"></div>
+
+  <div class="projects-container" id="portfolioCards" aria-live="polite">
+    <p class="text-center m-0">Chargement des projets…</p>
+  </div>
+
+  <noscript>
+    <p class="text-center mt-3">
+      JavaScript est désactivé : impossible d’afficher les projets dynamiques.
+      Consultez mon GitHub pour voir mes réalisations.
+    </p>
+  </noscript>
+</section>
+
+
+      <!-- SKILLS -->
+      <section id="skills" class="skills-section" aria-labelledby="skillsTitle">
+        <div class="section-head">
+          <h2 id="skillsTitle">Compétences</h2>
+        </div>
+
+        <div id="skillsFilters" class="btn-container" aria-label="Filtres compétences"></div>
+
+        <div class="skills-marquee" id="skillsMarquee">
+          <div class="skills-track" id="skillsTrack" aria-label="Compétences en défilement"></div>
+        </div>
+
+        <div class="skills-grid" id="skillsGrid" hidden aria-label="Compétences filtrées"></div>
+
+        <div class="skills-categories">
+          <div class="skill-card">
+            <h3>QA & Test</h3>
+            <ul>
+              <li>Stratégie de test, critères entrée/sortie, Go/No-Go</li>
+              <li>Plans de test, campagnes, non-régression, UAT</li>
+              <li>Gestion anomalies : sévérité/priorité, retest, Bilan</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Outils</h3>
+            <ul>
+              <li>Squash TM, Azure DevOps, Jira, Trello</li>
+              <li>Postman, Swagger/OpenAPI</li>
+              <li>SQL (MySQL/Workbench), BrowserStack, UML</li>
+            </ul>
+          </div>
+
+          <div class="skill-card">
+            <h3>Automatisation</h3>
+            <ul>
+              <li>Cypress</li>
+              <li>Playwright (E2E)</li>
+              <li>Jenkins</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact" aria-labelledby="contactTitle">
+        <div class="section-head">
+          <h2 id="contactTitle">Contact</h2>
+          <p class="section-subtitle">Une opportunité QA / QA Automation ? Écris-moi, je réponds rapidement.</p>
+        </div>
+
+        <div class="contact-grid">
+          <form
+            id="contact-form"
+            class="contact-form"
+            action="https://formsubmit.co/ajax/boukersi.aomar@gmail.com"
+            method="POST"
+            aria-busy="false"
+          >
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_subject" value="Nouveau message — Portfolio QA" />
+            <input type="hidden" name="_template" value="table" />
+
+            <input
+              type="text"
+              name="website"
+              id="website"
+              class="hidden-honeypot"
+              autocomplete="off"
+              tabindex="-1"
+              aria-hidden="true"
+            />
+
+            <div id="form-message" class="form-message" aria-live="polite"></div>
+
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input id="name" name="name" type="text" autocomplete="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+
+            <button class="btn primary" type="submit">
+              Envoyer <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <div class="contact-side">
+            <img src="./public_data/assets/robo_image.png" alt="Illustration robot" loading="lazy" />
+            <div class="contact-mini">
+              <p><strong>Email :</strong> <a href="mailto:boukersi.aomar@gmail.com">boukersi.aomar@gmail.com</a></p>
+              <p><strong>Zone :</strong> Île-de-France</p>
+              <p>
+                <strong>Docs :</strong>
+                <a href="./public_data/docs/documentation.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 — Aomar Boukersi • Consultant QA (orientation automatisation)</p>
+      <div class="footer-icons" aria-label="Réseaux">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+        </a>
+        <a href="mailto:boukersi.aomar@gmail.com" aria-label="Email">
+          <i class="fa-solid fa-at" aria-hidden="true"></i>
+        </a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./script/theme-toggle.js"></script>
+    <script src="./script/navbar.js"></script>
+    <script src="./script/experiences.js"></script>
+
+    <!-- ✅ Loader skills.css + skills.js -->
+    <script>
+      (function () {
+        const skillsSection = document.getElementById("skills");
+        if (!skillsSection) return;
+
+        const href = "./style/sections/skills.css";
+        const alreadyLoaded =
+          document.querySelector(`link[rel="stylesheet"][href="${href}"]`) ||
+          Array.from(document.styleSheets).some((s) => s.href && s.href.includes("skills.css"));
+
+        if (alreadyLoaded) return;
+
+        const link = document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = href;
+        document.head.appendChild(link);
+      })();
+    </script>
+    <script src="./script/skills.js"></script>
+
+    <script src="./script/portfolio.js"></script>
+    <script src="./script/contact.js"></script>
+  </body>
+</html>

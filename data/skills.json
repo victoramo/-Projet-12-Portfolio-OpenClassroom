@@ -1,0 +1,48 @@
+[
+  { "id": "html5", "category": "Dev & Versioning", "image": "public_data/skills-logos/html-5.webp", "title": "HTML5", "alt": "Logo HTML5" },
+  { "id": "css3", "category": "Dev & Versioning", "image": "public_data/skills-logos/css-3.webp", "title": "CSS3", "alt": "Logo CSS3" },
+  { "id": "javascript", "category": "Dev & Versioning", "image": "public_data/skills-logos/javascript.webp", "title": "JavaScript", "alt": "Logo JavaScript" },
+  { "id": "react", "category": "Dev & Versioning", "image": "public_data/skills-logos/react.webp", "title": "React", "alt": "Logo React" },
+  { "id": "bootstrap", "category": "Dev & Versioning", "image": "public_data/skills-logos/bootstrap.webp", "title": "Bootstrap", "alt": "Logo Bootstrap" },
+  { "id": "media-queries", "category": "Dev & Versioning", "image": "public_data/skills-logos/media-queries.webp", "title": "Media Queries", "alt": "Icône Media Queries" },
+
+  { "id": "git", "category": "Dev & Versioning", "image": "public_data/skills-logos/git-icon.webp", "title": "Git", "alt": "Logo Git" },
+  { "id": "github", "category": "Dev & Versioning", "image": "public_data/skills-logos/github-icon.webp", "title": "GitHub", "alt": "Logo GitHub" },
+  { "id": "vscode", "category": "Dev & Versioning", "image": "public_data/skills-logos/visual-studio-code.webp", "title": "Visual Studio Code", "alt": "Logo Visual Studio Code" },
+  { "id": "nodejs", "category": "Dev & Versioning", "image": "public_data/skills-logos/nodejs.webp", "title": "Node.js", "alt": "Logo Node.js" },
+  { "id": "npm", "category": "Dev & Versioning", "image": "public_data/skills-logos/npm.webp", "title": "npm", "alt": "Logo npm" },
+  { "id": "docker", "category": "Dev & Versioning", "image": "public_data/skills-logos/docker.webp", "title": "Docker", "alt": "Logo Docker" },
+  { "id": "wordpress", "category": "Dev & Versioning", "image": "public_data/skills-logos/wordpress.webp", "title": "WordPress", "alt": "Logo WordPress" },
+
+  
+  { "id": "test", "category": "QA & Test", "image": "public_data/skills-logos/test.webp", "title": "Test logiciel", "alt": "Icône Test logiciel" },
+  
+  { "id": "postman", "category": "QA & Test", "image": "public_data/skills-logos/postman.webp", "title": "Postman", "alt": "Logo Postman" },
+  { "id": "swagger", "category": "QA & Test", "image": "public_data/skills-logos/swagger.webp", "title": "Swagger / OpenAPI", "alt": "Logo Swagger" },
+  { "id": "rest-api", "category": "QA & Test", "image": "public_data/skills-logos/api-rest.webp", "title": "API REST", "alt": "Logo API REST" },
+  { "id": "faker", "category": "QA & Test", "image": "public_data/skills-logos/faker.webp", "title": "Faker", "alt": "Logo Faker" },
+
+  { "id": "xray", "category": "QA & Test", "image": "public_data/skills-logos/xray.webp", "title": "Xray", "alt": "Logo Xray (test management Jira)" },
+  { "id": "qtest", "category": "QA & Test", "image": "public_data/skills-logos/qtest-logo.webp", "title": "Tricentis qTest", "alt": "Logo Tricentis qTest" },
+
+  { "id": "jenkins", "category": "QA & Automatisation", "image": "public_data/skills-logos/jenkins-1.webp", "title": "Jenkins", "alt": "Logo Jenkins" },
+  { "id": "cypress", "category": "QA & Automatisation", "image": "public_data/skills-logos/cypress.webp", "title": "Cypress", "alt": "Logo Cypress" },
+  { "id": "playwright", "category": "QA & Automatisation", "image": "public_data/skills-logos/playwright.webp", "title": "Playwright", "alt": "Logo Playwright" },
+
+
+  { "id": "jira", "category": "Gestion & Collaboration", "image": "public_data/skills-logos/jira.webp", "title": "Jira", "alt": "Logo Jira" },
+  { "id": "trello", "category": "Gestion & Collaboration", "image": "public_data/skills-logos/trello.webp", "title": "Trello", "alt": "Logo Trello" },
+  { "id": "notion", "category": "Gestion & Collaboration", "image": "public_data/skills-logos/notion.webp", "title": "Notion", "alt": "Logo Notion" },
+  { "id": "slack", "category": "Gestion & Collaboration", "image": "public_data/skills-logos/slack.webp", "title": "Slack", "alt": "Logo Slack" },
+  { "id": "scrum", "category": "Gestion & Collaboration", "image": "public_data/skills-logos/scrum.webp", "title": "Agile / Scrum", "alt": "Logo Scrum" },
+  { "id": "gestion-projet", "category": "Gestion & Collaboration", "image": "public_data/skills-logos/gestion-de-projet.webp", "title": "Gestion de projet", "alt": "Icône Gestion de projet" },
+
+  { "id": "lighthouse", "category": "Qualité Web", "image": "public_data/skills-logos/lighthouse.webp", "title": "Lighthouse", "alt": "Logo Lighthouse" },
+  { "id": "wave", "category": "Qualité Web", "image": "public_data/skills-logos/wave.webp", "title": "WAVE", "alt": "Logo WAVE" },
+  { "id": "optimisation-debug", "category": "Qualité Web", "image": "public_data/skills-logos/optimisation-et-debug.webp", "title": "Optimisation & Debug", "alt": "Icône Optimisation et Debug" },
+  { "id": "figma", "category": "Qualité Web", "image": "public_data/skills-logos/figma.webp", "title": "Figma", "alt": "Logo Figma" },
+
+  { "id": "office-365", "category": "Productivité", "image": "public_data/skills-logos/office-365.webp", "title": "Microsoft Office 365", "alt": "Logo Microsoft Office 365" },
+  { "id": "google-workspace", "category": "Productivité", "image": "public_data/skills-logos/google-workspace.webp", "title": "Google Workspace", "alt": "Logo Google Workspace" },
+  { "id": "outlook", "category": "Productivité", "image": "public_data/skills-logos/outlook.webp", "title": "Outlook", "alt": "Logo Outlook" }
+]

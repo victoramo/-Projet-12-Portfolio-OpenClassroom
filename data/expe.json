@@ -1,0 +1,248 @@
+[
+  {
+    "id": "exp1",
+    "title": "Consultant QA / Test & Recette | Projet HERMES (Microsoft Dynamics 365)",
+    "company": "Hobart France",
+    "location": "Marne-la-Vallée, France",
+    "period": "2024 – 2026",
+    "missions": [
+      "Mise en place de l’organisation des tests : planning des cycles, bonnes pratiques, coordination avec équipes métier et techniques.",
+      "Analyse et factorisation des livrables (BPD/TDD/FDD) en User Stories exploitables, ajout des règles de gestion et critères d’acceptation.",
+      "Construction du référentiel de tests dans Squash TM : scénarios, cas de test, pas à pas, jeux de données, couverture des exigences.",
+      "Exécution des campagnes de tests : fonctionnels, intégration, parcours bout en bout (E2E), non-régression ; comptes-rendus et suivi des corrections.",
+      "Gestion des anomalies : qualification, preuves, priorisation, suivi jusqu’à validation du correctif (retest).",
+      "Tests d’interfaces Finance : contrôle des échanges Concur (notes de frais) et ADP (paie) vers D365 via Azure Data Factory (mapping, formats, règles de gestion).",
+      "Tests d’interfaces Logistique : recette des flux D365 vers l’entrepôt virtuel (articles/quantités) via fichiers et transferts SFTP ; vérification du mapping et cohérence des données.",
+      "Périmètre couvert : référentiels clients/articles, tarifs/contrats, devis/commande, achats/stocks, expéditions/facturation, planification interventions, finance, interfaces."
+    ],
+    "tools": [
+      "Microsoft Dynamics 365",
+      "Squash TM",
+      "Azure DevOps",
+      "Azure Data Factory",
+      "SharePoint",
+      "Trello / Teams"
+    ],
+    "skills": [
+      "Stratégie & organisation de tests",
+      "Traçabilité exigences ↔ tests ↔ anomalies",
+      "Test d’intégration & E2E",
+      "Gestion des anomalies (evidence, retest)",
+      "Coordination MOA/MOE"
+    ],
+    "linkToTesting": [
+      "Approche end-to-end (exigences → tests → Go/No-Go)",
+      "Sécurisation des interfaces et des flux de données",
+      "Industrialisation du suivi QA (outillage & reporting)"
+    ]
+  },
+  {
+    "id": "exp2",
+    "title": "Consultant QA / Test Web & Outil de recommandation",
+    "company": "Hobart Concept",
+    "location": "Marne-la-Vallée, France",
+    "period": "2024 – 2025",
+    "missions": [
+      "Recette fonctionnelle & UX du site : contrôle des parcours, navigation, pagination, cohérence IHM, responsive et compatibilité navigateurs.",
+      "Détection et qualification de bugs bloquants sur la page “Outils” (calcul non opérationnel, erreurs JavaScript, ressources manquantes, conflits de plugins) et priorisation selon l’impact business.",
+      "Contrôle qualité du contenu et des médias : images non affichées, documents techniques absents/incorrects, incohérences “voir/télécharger”, liens de téléchargement/visualisation, homogénéité sur les fiches produits.",
+      "Validation de l’outil BE (outil de recommandation) : vérification des champs de saisie (activité, volumes, fréquence, débit…), du calcul des résultats et de l’affichage attendu (machine recommandée, prix, dimensions, fiches techniques).",
+      "Tests de cohérence des résultats : valeurs par défaut, recalcul après modification, format des valeurs (ex. décimales), stabilité de l’affichage.",
+      "Audit qualité complémentaire (performance / accessibilité / SEO / sécurité) et recommandations actionnables."
+    ],
+    "tools": [
+      "WordPress (plugins / constructeur de pages)",
+      "Navigateurs (tests compatibilité)",
+      "Lighthouse (audit)",
+      "WAVE (a11y)"
+    ],
+    "skills": [
+      "Recette web & validation UX",
+      "Débug / qualification anomalies JS",
+      "Contrôle qualité contenu & médias",
+      "Priorisation orientée impact business",
+      "Audit qualité (perf/a11y/SEO)"
+    ],
+    "linkToTesting": [
+      "Validation fonctionnelle + non-régression web",
+      "Qualité perçue (UX/IHM) et fiabilité des calculs",
+      "Détection des risques (plugins, ressources, sécurité)"
+    ]
+  },
+  {
+    "id": "exp3",
+    "title": "Consultant QA / Test & Recette | Application mobile & parcours hôtel (renfort équipe QA)",
+    "company": "Disneyland Paris (Digital Guest Experience) — IKACHEAdvisor",
+    "location": "Val d’Europe, France",
+    "period": "06/2023 – 12/2023",
+    "missions": [
+      "Onboarding rapide sur l’écosystème projet et l’outillage QA : Tricentis qTest / QC ALM, Jira, Slack, rituels Agile / SAFe (PI Planning, Sprint Planning, Daily, PBR, Démo).",
+      "Analyse des spécifications (SFD) & User Stories : compréhension des parcours, identification des cas limites, risques et critères d’acceptation.",
+      "Conception et maintenance du référentiel de tests : plan de test, scénarios, cas fonctionnels / UI / non-régression / E2E sur les parcours hôtel (ex : online check-in, clé digitale, MagicPass digital).",
+      "Préparation des jeux de données et contrôles de cohérence via requêtes (Opera).",
+      "Organisation & exécution des campagnes dans qTest / ALM : planification, suivi d’avancement, consolidation, reporting de recette.",
+      "Tests API (Postman) et validation des intégrations sur un SI distribué (micro-services / appels REST).",
+      "Gestion des anomalies sous Jira : reproduction, preuves, sévérité/priorité, suivi du cycle de vie, retest et validation des correctifs.",
+      "Tests multi-plateformes (iOS / Android / Windows) + tests en conditions réelles sur site selon besoins opérationnels."
+    ],
+    "tools": [
+      "Tricentis qTest",
+      "QC ALM / Quality Center",
+      "Jira",
+      "Slack",
+      "Postman",
+      "Opera",
+      "iOS / Android / Windows"
+    ],
+    "skills": [
+      "Tests mobile & parcours client",
+      "Conception de tests (UI / E2E / TNR)",
+      "Tests API (REST) & intégrations",
+      "Gestion anomalies Jira",
+      "Méthodes Agile Scrum / SAFe"
+    ],
+    "linkToTesting": [
+      "Référentiel de tests maintenable et traçable",
+      "Couverture des parcours critiques (hôtel)",
+      "Validation des intégrations et dépendances SI"
+    ]
+  },
+  {
+    "id": "exp4",
+    "title": "Projets AMOA SI (formation) — Recette & cadrage fonctionnel",
+    "company": "CEFISI — Titre RNCP 7 AMOA SI",
+    "location": "Créteil, France",
+    "period": "01/2023 – 06/2023",
+    "missions": [
+      "Projet 01 : Mise en production d’un site e-commerce (Agile Scrum) : cadrage, analyse du besoin, conception fonctionnelle.",
+      "Modélisation UML d’une boutique en ligne ; définition des récits utilisateur et des tests d’acceptation.",
+      "Projet 02 : Cahier des charges d’un site e-learning (SQL-Skills) : reprise d’un existant, inventaire des fonctionnalités, rédaction d’améliorations.",
+      "Définition des User Stories, rédaction du cahier de recette, critères d’acceptation et scénarios."
+    ],
+    "tools": [
+      "UML",
+      "Méthodes Agile Scrum",
+      "Documentation / spécifications"
+    ],
+    "skills": [
+      "Analyse fonctionnelle & cadrage",
+      "User Stories & critères d’acceptation",
+      "Conception de tests d’acceptation",
+      "Documentation & traçabilité"
+    ],
+    "linkToTesting": [
+      "Transformation des besoins en cas de test",
+      "Structuration d’une recette et de ses critères",
+      "Approche méthodique orientée qualité"
+    ]
+  },
+  {
+    "id": "exp5",
+    "title": "Technicien en Gestion de Systèmes et Réseaux",
+    "company": "Hôpital Chahids Mahmoudi",
+    "location": "Tizi Ouzou, Algérie",
+    "period": "06/2020 – 08/2021",
+    "missions": [
+      "Découverte de la structure et du fonctionnement d’un SI hospitalier.",
+      "Familiarisation avec les ERP de gestion hospitalière (DxCare, DxImage) et les protocoles de gestion de bureau à distance.",
+      "Mise en place d’une politique de sécurité des périphériques finaux."
+    ],
+    "tools": [
+      "DxCare",
+      "DxImage",
+      "Windows",
+      "Protocoles de bureau à distance"
+    ],
+    "skills": [
+      "Compréhension SI & environnements",
+      "Support et mise en conformité",
+      "Sécurité poste de travail"
+    ],
+    "linkToTesting": [
+      "Culture SI & compréhension des environnements",
+      "Sensibilité sécurité & conformité",
+      "Rigueur et procédures"
+    ]
+  },
+  {
+    "id": "exp6",
+    "title": "Ingénieur chimiste — Contrôle qualité",
+    "company": "Groupe Osmose SPA",
+    "location": "Tizi Ouzou, Algérie",
+    "period": "03/2016 – 02/2020",
+    "missions": [
+      "Analyse des matières premières (acide sulfonique, soude, silicate, STPP, carbonate, percarbonate, TAED…).",
+      "Analyse des détergents (taux matière active, alcalinité, STPP, carbonate, silicate…).",
+      "Analyse des emballages (carton, étui, valisette…).",
+      "Analyse de l’eau de lavage et de la chaudière (TA, TAC, TH dureté…)."
+    ],
+    "tools": [
+      "Protocoles d’analyse laboratoire",
+      "Contrôles qualité & conformité"
+    ],
+    "skills": [
+      "Rigueur & sens du détail",
+      "Analyse de données et interprétation",
+      "Rédaction de comptes-rendus",
+      "Qualité / conformité"
+    ],
+    "linkToTesting": [
+      "Méthode, mesures, vérification",
+      "Traçabilité et reporting",
+      "Culture qualité orientée normes"
+    ]
+  },
+  {
+    "id": "exp7",
+    "title": "Ingénieur chimiste — Contrôle qualité",
+    "company": "Epe / Electro Industries SPA",
+    "location": "Azazga, Algérie",
+    "period": "01/2013 – 11/2013",
+    "missions": [
+      "Analyses qualitatives et quantitatives.",
+      "Rédaction de comptes rendus d’analyses et de conformité.",
+      "Contrôle qualité de l’huile moteur : nature, aspect, viscosité, masse volumique, indice d’acidité, point d’écoulement, soufre corrosif.",
+      "Contrôle qualité des gaines isolantes (tissu de verre vernis) et analyse des matériaux."
+    ],
+    "tools": [
+      "Protocoles de contrôle qualité",
+      "Documentation de conformité"
+    ],
+    "skills": [
+      "Analyse & contrôle",
+      "Documentation qualité",
+      "Conformité & procédures"
+    ],
+    "linkToTesting": [
+      "Culture qualité et vérification",
+      "Formalisation et traçabilité",
+      "Esprit d’analyse et précision"
+    ]
+  },
+  {
+    "id": "exp8",
+    "title": "Synthèse des Soft Skills",
+    "summary": [
+      {
+        "title": "Rigueur & sens du détail",
+        "description": "Capacité à suivre des processus stricts, produire des livrables fiables et vérifier systématiquement les résultats."
+      },
+      {
+        "title": "Esprit d’analyse & gestion des risques",
+        "description": "Identification des cas limites, priorisation par criticité et anticipation des impacts sur le business."
+      },
+      {
+        "title": "Communication claire (MOA/MOE)",
+        "description": "Remontée d’anomalies avec preuves, reformulation des besoins, reporting et coordination inter-équipes."
+      },
+      {
+        "title": "Ownership & proactivité",
+        "description": "Prise en charge des sujets QA, recherche de solutions et amélioration continue de l’outillage et des pratiques."
+      },
+      {
+        "title": "Adaptabilité & apprentissage continu",
+        "description": "Onboarding rapide, montée en compétence en automatisation (Cypress/Playwright) et intérêt pour l’IA appliquée au test."
+      }
+    ]
+  }
+]
