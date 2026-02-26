@@ -57,6 +57,14 @@ body {
   transform: translateY(0);
 }
 
+/* Theme state label (a11y + tests): visible next to the icon */
+.theme-state-label {
+  display: inline-block;
+  margin-left: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 /* Liens */
 a {
   color: inherit;

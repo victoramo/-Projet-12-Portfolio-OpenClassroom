@@ -23,6 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setMsg = (text, type) => {
     messageBox.textContent = text;
     messageBox.className = `form-message ${type ? `form-message--${type}` : ""}`.trim();
+    messageBox.setAttribute("data-submit-status", type === "success" ? "success" : type === "error" ? "error" : "");
   };
 
   form.addEventListener("submit", async (e) => {
@@ -66,6 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
       if (response.ok) {
         setMsg("Votre message a bien été envoyé !", "success");
         form.reset();
+        if (submitButton) submitButton.disabled = true;
+        setTimeout(() => {
+          if (submitButton) submitButton.disabled = false;
+        }, 2000);
       } else {
         // On essaie de lire un message JSON si FormSubmit répond
         let extra = "";
@@ -78,11 +83,12 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       setMsg("Erreur réseau. Vérifiez votre connexion.", "error");
     } finally {
-      if (submitButton) submitButton.disabled = false;
+      if (submitButton && messageBox.getAttribute("data-submit-status") !== "success") submitButton.disabled = false;
       form.setAttribute("aria-busy", "false");
 
       setTimeout(() => {
         setMsg("", "");
+        messageBox.removeAttribute("data-submit-status");
       }, 6000);
     }
   });

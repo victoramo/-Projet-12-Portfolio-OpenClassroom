@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script>
+      (function () {
+        try {
+          var s = localStorage.getItem("theme");
+          if (s === "light" || s === "dark") document.documentElement.dataset.theme = s;
+        } catch (_) {}
+      })();
+    </script>
 
     <title>Aomar Boukersi | Consultant QA (Orientation Automatisation)</title>
     <meta
@@ -33,6 +41,7 @@
   </head>
 
   <body>
+    <script>if(document.documentElement.dataset.theme==="light")document.body.classList.add("light-theme");</script>
     <a class="skip-link" href="#main">Aller au contenu</a>
     <div id="stars" aria-hidden="true"></div>
 
@@ -64,7 +73,7 @@
           <li><a href="#home">Accueil</a></li>
           <li><a href="#about">Profil</a></li>
           <li><a href="#experience">Expériences</a></li>
-          <li><a href="#projects">Projets</a></li>
+          <li><a href="#portfolio">Projets</a></li>
           <li><a href="#skills">Compétences</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -73,11 +82,12 @@
           id="themeToggle"
           class="theme-toggle-btn"
           type="button"
-          aria-label="Changer le thème"
+          aria-label="Toggle theme"
           aria-pressed="false"
-          title="Changer le thème"
+          title="Toggle theme"
         >
           <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+          <span id="themeState" class="theme-state-label" aria-live="polite">Dark</span>
         </button>
 
         <a class="nav-cta" href="./public_data/CV/cv.pdf" target="_blank" rel="noopener noreferrer">
@@ -101,7 +111,7 @@
           </p>
 
           <div class="hero-btns" role="group" aria-label="Actions principales">
-            <a class="btn primary" href="#projects">
+            <a class="btn primary" href="#portfolio">
               Voir mes projets <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </a>
 
@@ -201,7 +211,7 @@
       </section>
 
       <!-- ✅ PROJECTS (corrigé : plus de duplication) -->
-      <section id="projects" class="projects" aria-labelledby="projectsTitle">
+      <section id="portfolio" class="projects" aria-labelledby="projectsTitle">
   <div class="section-head">
     <h2 id="projectsTitle">Projets</h2>
   </div>
@@ -209,17 +219,15 @@
   <div id="portfolioFilters" class="btn-container" aria-label="Filtres projets"></div>
 
   <div class="projects-container" id="portfolioCards" aria-live="polite">
-    <p class="text-center m-0">Chargement des projets…</p>
+    <p class="text-center m-0">Loading — Chargement des projets…</p>
   </div>
-
+</section>
   <noscript>
     <p class="text-center mt-3">
       JavaScript est désactivé : impossible d’afficher les projets dynamiques.
       Consultez mon GitHub pour voir mes réalisations.
     </p>
   </noscript>
-</section>
-
 
       <!-- SKILLS -->
       <section id="skills" class="skills-section" aria-labelledby="skillsTitle">
@@ -311,7 +319,7 @@
               <textarea id="message" name="message" rows="5" required></textarea>
             </div>
 
-            <button class="btn primary" type="submit">
+            <button id="contact-submit" class="btn primary" type="submit" aria-label="Envoyer le message">
               Envoyer <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
             </button>
           </form>

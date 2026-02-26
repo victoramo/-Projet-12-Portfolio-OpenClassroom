@@ -91,8 +91,8 @@ async function createExperienceTimeline() {
   const modalDetails = document.getElementById("modalDetails");
   const closeBtn = modal ? modal.querySelector(".close") : null;
 
-  // Nettoyage
-  timeline.innerHTML = "";
+  // Loading state (visible "Loading" for tests)
+  timeline.innerHTML = "<p class=\"exp-loading\">Loading — Chargement des expériences…</p>";
   if (softSkillsContainer) softSkillsContainer.innerHTML = "";
 
   try {
@@ -129,6 +129,13 @@ async function createExperienceTimeline() {
       const meta = document.createElement("p");
       meta.className = "meta";
       safeText(meta, safeMeta(item));
+
+      const hasDetails =
+        (Array.isArray(item.missions) && item.missions.length) ||
+        (Array.isArray(item.tools) && item.tools.length) ||
+        (Array.isArray(item.skills) && item.skills.length) ||
+        (Array.isArray(item.linkToTesting) && item.linkToTesting.length) ||
+        (Array.isArray(item.downloads) && item.downloads.length);
 
       const btn = document.createElement("button");
       btn.type = "button";
@@ -178,19 +185,25 @@ async function createExperienceTimeline() {
         details.appendChild(block);
       }
 
+      const toggleInline = () => {
+        details.hidden = !details.hidden;
+        btn.textContent = details.hidden ? "En savoir plus" : "Réduire";
+      };
+
       btn.addEventListener("click", () => {
         if (modal && modalHeader && modalDetails && closeBtn) {
           openModal(item, { modal, modalHeader, modalDetails });
         } else {
-          details.hidden = !details.hidden;
-          btn.textContent = details.hidden ? "En savoir plus" : "Réduire";
+          toggleInline();
         }
       });
 
       card.appendChild(h3);
       card.appendChild(meta);
-      card.appendChild(btn);
-      card.appendChild(details);
+      if (hasDetails) {
+        card.appendChild(btn);
+        card.appendChild(details);
+      }
       frag.appendChild(card);
     });
 
@@ -220,7 +233,7 @@ async function createExperienceTimeline() {
   } catch (err) {
     const errorBox = document.createElement("p");
     errorBox.className = "exp-error";
-    errorBox.textContent = "Impossible de charger les expériences. Vérifie data/expe.json et la console.";
+    errorBox.textContent = "Impossible de charger les expériences.";
     timeline.appendChild(errorBox);
     console.error("[experiences.js] Erreur:", err);
   }
@@ -238,6 +251,22 @@ async function createExperienceTimeline() {
 
     window.addEventListener("keydown", (event) => {
       if (event.key === "Escape") close();
+    });
+  }
+
+  // Escape closes inline-expanded experience details (no modal)
+  if (!window.__EXPE_ESCAPE_BOUND__) {
+    window.__EXPE_ESCAPE_BOUND__ = true;
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      const expanded = timeline.querySelector(".exp-details:not([hidden])");
+      if (!expanded) return;
+      const card = expanded.closest(".exp-card");
+      const btn = card ? card.querySelector("button.open-modal") : null;
+      if (btn) {
+        expanded.hidden = true;
+        btn.textContent = "En savoir plus";
+      }
     });
   }
 }

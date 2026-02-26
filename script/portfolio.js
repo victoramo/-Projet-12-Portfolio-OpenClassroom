@@ -72,7 +72,7 @@
     if (!container || !filterContainer) return;
 
     filterContainer.innerHTML = "";
-    container.innerHTML = `<p class="text-center m-0">Chargement des projets…</p>`;
+    container.innerHTML = `<p class="text-center m-0">Loading — Chargement des projets…</p>`;
 
     let data;
     try {
@@ -169,7 +169,25 @@
       }
 
       if (!filtered.length) {
-        container.innerHTML = `<p class="exp-error">Aucun projet trouvé pour ce filtre.</p>`;
+        const msg = document.createElement("p");
+        msg.className = "exp-error";
+        msg.textContent = "Aucun projet trouvé pour ce filtre.";
+        const resetBtn = document.createElement("button");
+        resetBtn.type = "button";
+        resetBtn.className = "btn secondary";
+        resetBtn.textContent = "Tous";
+        resetBtn.addEventListener("click", () => {
+          filterContainer.querySelectorAll("button.filter-btn").forEach((b) => {
+            const isTous = (b.dataset.filter || "") === "tous";
+            b.setAttribute("aria-pressed", isTous ? "true" : "false");
+            b.classList.toggle("primary", isTous);
+            b.classList.toggle("secondary", !isTous);
+          });
+          renderCards("tous");
+        });
+        container.innerHTML = "";
+        container.appendChild(msg);
+        container.appendChild(resetBtn);
         return;
       }
 
@@ -330,6 +348,28 @@
       section.querySelector("p").textContent = item.objective;
       modalDetails.appendChild(section);
     }
+
+    const links = document.createElement("div");
+    links.className = "project-modal-links";
+    if (item.lien_github) {
+      const gh = document.createElement("a");
+      gh.className = "btn ghost";
+      gh.href = item.lien_github;
+      gh.target = "_blank";
+      gh.rel = "noopener noreferrer";
+      gh.textContent = "Code";
+      links.appendChild(gh);
+    }
+    if (item.lien_demo) {
+      const demo = document.createElement("a");
+      demo.className = "btn primary";
+      demo.href = item.lien_demo;
+      demo.target = "_blank";
+      demo.rel = "noopener noreferrer";
+      demo.textContent = "Démo";
+      links.appendChild(demo);
+    }
+    if (links.children.length) modalDetails.appendChild(links);
 
     modal.style.display = "flex";
   }

@@ -122,7 +122,7 @@ async function initSkills({ url, trackId, filtersId, marqueeId, gridId }) {
     if (grid) grid.innerHTML = "";
 
     if (!filtered.length) {
-      track.innerHTML = `<p>Aucune compétence pour ce filtre.</p>`;
+      track.innerHTML = `<p>Aucune compétence trouvée.</p>`;
       if (marquee) marquee.hidden = false;
       if (grid) grid.hidden = true;
       return;

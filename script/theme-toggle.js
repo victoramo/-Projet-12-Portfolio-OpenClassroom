@@ -22,20 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const icon = btn.querySelector("i"); // dans ton HTML : <i class="fa-solid fa-circle-half-stroke"></i>
 
+  const themeStateEl = document.getElementById("themeState");
+
   const applyTheme = (mode) => {
     const isLight = mode === "light";
     body.classList.toggle("light-theme", isLight);
+    document.documentElement.dataset.theme = mode;
 
-    // a11y
+    // a11y: aria-pressed true = light, false = dark
     btn.setAttribute("aria-pressed", String(isLight));
+    if (themeStateEl) themeStateEl.textContent = isLight ? "Light" : "Dark";
 
-    // (Option) switch icon si tu veux :
-    // - garde le half-stroke => icon fixe (recommandé)
-    // - sinon : soleil/lune
-    if (icon) {
-      // icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
-      icon.className = "fa-solid fa-circle-half-stroke";
-    }
+    if (icon) icon.className = "fa-solid fa-circle-half-stroke";
 
     try {
       localStorage.setItem(storageKey, mode);
@@ -43,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const getInitialTheme = () => {
+    // Prefer theme set by head script (persisted from previous visit)
+    const fromHtml = document.documentElement.dataset.theme;
+    if (fromHtml === "light" || fromHtml === "dark") return fromHtml;
     try {
       const saved = localStorage.getItem(storageKey);
       if (saved === "light" || saved === "dark") return saved;
@@ -50,11 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const prefersLight =
       window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-
     return prefersLight ? "light" : "dark";
   };
 
-  // Init
+  // Init: apply saved or system preference so persistence is reliable
   applyTheme(getInitialTheme());
 
   // Toggle
