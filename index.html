@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script>
@@ -22,11 +23,13 @@
     <link rel="stylesheet" href="./style.css" />
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
+     
+    <link rel="preload" as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      referrerpolicy="no-referrer"
-    />
+      onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</noscript>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -138,11 +141,16 @@
         </div>
 
         <div class="hero-image-container">
+          
           <img
-            src="./public_data/assets/portfolio.png"
-            alt="Illustration représentant un consultant QA"
-            class="hero-image"
-            loading="lazy"
+        
+              src="./public_data/assets/portfolio.webp"
+              alt="Illustration représentant un consultant QA"
+              class="hero-image"
+              width="528" height="788"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
           />
         </div>
       </section>
@@ -358,7 +366,7 @@
     </form>
 
     <div class="contact-side">
-      <img src="./public_data/assets/robo_image.png" alt="Illustration robot" loading="lazy" />
+      <img src="./public_data/assets/robo_image.avif" alt="Illustration robot" loading="lazy" />
       <div class="contact-mini">
         <p><strong>Email :</strong> <a href="mailto:boukersi.aomar@gmail.com">boukersi.aomar@gmail.com</a></p>
         <p><strong>Zone :</strong> Île-de-France</p>

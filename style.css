@@ -591,7 +591,10 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
   justify-content: center;
   flex-wrap: wrap;
 }
-
+.portfolioContent .card-img-top {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
 .projects-container#portfolioCards {
   max-width: var(--container);
   margin: 0 auto;
