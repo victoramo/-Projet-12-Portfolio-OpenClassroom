@@ -54,7 +54,6 @@ body.light-theme {
 * {
   margin: 0;
   padding: 0;
-  font-family: "Outfit", "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
 }
 
 html {
@@ -62,11 +61,21 @@ html {
 }
 
 body {
+  font-family: "Outfit", "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background: radial-gradient(circle at center, var(--dark-blue-bg) 0%, var(--darker-blue-bg) 100%);
   color: var(--text);
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
+}
+
+/* Form controls inherit typography */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
 }
 
 /* Pour éviter que les ancres passent sous la navbar */
@@ -99,12 +108,10 @@ section {
 :focus-visible {
   outline: none;
   box-shadow: var(--focus);
-  border-radius: 10px;
 }
 
 /* ================================
    Background étoiles
-   (évite conflit : utilise .star au lieu d’injection CSS JS)
 ================================ */
 #stars {
   position: fixed;
@@ -208,16 +215,20 @@ body.light-theme .navbar.navbarDark {
   width: 100%;
 }
 
-/* Bouton thème */
+/* ✅ Bouton thème (corrigé : le texte n’est plus coupé) */
 .theme-toggle-btn {
   border: 1px solid var(--border);
   background: var(--glass);
   color: var(--text);
-  width: 44px;
-  height: 44px;
+
+  min-height: 44px;
+  padding: 0 12px;
   border-radius: 14px;
-  display: grid;
-  place-items: center;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
@@ -225,6 +236,10 @@ body.light-theme .navbar.navbarDark {
   transform: translateY(-2px);
   background: var(--glass-2);
   border-color: rgba(0, 123, 255, 0.35);
+}
+.theme-state-label {
+  font-size: 0.85rem;
+  opacity: 0.9;
 }
 
 /* CTA CV */
@@ -246,7 +261,7 @@ body.light-theme .navbar.navbarDark {
   transform: translateY(-2px);
 }
 
-/* Burger (HTML = spans) */
+/* Burger */
 .burger {
   display: none;
   cursor: pointer;
@@ -269,8 +284,7 @@ body.light-theme .navbar.navbarDark {
 .toggle .line3 { transform: rotate(45deg) translate(-5px, -7px); }
 
 /* ================================
-   Boutons génériques
-   (évite conflit : pas de .my-btn / .btn-container hérités)
+   Boutons
 ================================ */
 .btn {
   display: inline-flex;
@@ -416,7 +430,7 @@ body.light-theme .navbar.navbarDark {
 .section-head {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
   text-align: center;
 }
 .section-head h2 {
@@ -442,7 +456,7 @@ body.light-theme .navbar.navbarDark {
   gap: 26px;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
 }
 
 .about-text,
@@ -510,30 +524,14 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
 .timeline {
   max-width: var(--container);
   margin: 0 auto 28px;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
 }
 
-/* Exp details inline (experiences.js fallback) */
-.exp-details {
-  padding: 0 18px 18px;
-}
-.exp-details h4 {
-  margin-top: 14px;
-  margin-bottom: 8px;
-  font-size: 1.05rem;
-}
-.exp-details ul {
-  padding-left: 18px;
-  color: var(--muted);
-  line-height: 1.7;
-}
-.exp-details li { margin-bottom: 6px; }
-
-/* fallback grid (si JS off) */
+/* fallback */
 .fallback-grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
@@ -551,11 +549,11 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
 .exp-card .meta { color: var(--muted-2); font-size: 0.95rem; margin-bottom: 10px; }
 .exp-card p { color: var(--muted); line-height: 1.65; }
 
-/* Soft skills (évite conflit avec skills.json) */
+/* Soft skills */
 .soft-skills-section {
   max-width: var(--container);
   margin: 28px auto 0;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
 }
 .soft-skills-title {
   text-align: center;
@@ -583,39 +581,35 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
 ================================ */
 .projects { padding: 90px 0; }
 
-/* Zone filtres */
 #portfolioFilters.btn-container,
 .btn-container {
   max-width: var(--container);
   margin: 0 auto 22px;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
   display: flex;
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-/* Container dynamique portfolio.js */
 .projects-container#portfolioCards {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-/* Fallback (HTML static) */
 .projects-grid {
   max-width: var(--container);
   margin: 28px auto 0;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
-/* Carte projet (utilisée par portfolio.js + fallback) */
 .project-item {
   display: flex;
   flex-direction: column;
@@ -636,10 +630,8 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
 .project-item h3 { font-size: 1.2rem; padding: 14px 14px 0; }
 .project-item p { padding: 10px 14px 0; color: var(--muted); line-height: 1.6; }
 
-/* Actions ajoutées par portfolio.js */
 .project-actions { padding: 14px; display: flex; gap: 10px; flex-wrap: wrap; }
 
-/* Lien fallback */
 .project-link {
   margin: 14px;
   color: var(--text);
@@ -651,23 +643,23 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
 }
 .project-link:hover { color: var(--primary); border-color: var(--primary); }
 
-
 /* ================================
-   CONTACT
+   CONTACT (corrigé)
 ================================ */
 .contact { padding: 90px 0; }
 
-.contact-grid {
+#contact .contact-grid {
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 10%;
+  padding-inline: clamp(16px, 6vw, 80px);
   display: grid;
-  grid-template-columns: 1fr 0.9fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   gap: 18px;
   align-items: start;
 }
 
-.contact-form {
+#contact .contact-form {
+  position: relative; /* ✅ nécessaire pour le honeypot */
   background: var(--glass);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -676,48 +668,97 @@ body.light-theme .info-card { background: rgba(12, 18, 34, 0.04); }
   backdrop-filter: blur(14px);
 }
 
-.form-group { display: grid; gap: 8px; margin-bottom: 14px; }
-.form-group label { font-weight: 600; color: var(--muted); }
+#contact .form-group { display: grid; gap: 8px; margin-bottom: 14px; }
+#contact .form-group label { font-weight: 600; color: var(--muted); }
 
-.contact-form input,
-.contact-form textarea {
+#contact .field-hint {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+  color: var(--muted-2);
+}
+
+#contact .contact-form input,
+#contact .contact-form textarea {
   width: 100%;
   padding: 14px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.10);
   border: 1px solid var(--border);
   color: var(--text);
   border-radius: 12px;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
-body.light-theme .contact-form input,
-body.light-theme .contact-form textarea { background: rgba(12, 18, 34, 0.04); }
 
-.contact-form input:focus,
-.contact-form textarea:focus { border-color: rgba(0, 123, 255, 0.65); box-shadow: var(--focus); }
+#contact .contact-form input::placeholder,
+#contact .contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
 
-.contact-form textarea { resize: vertical; min-height: 140px; }
+body.light-theme #contact .contact-form input,
+body.light-theme #contact .contact-form textarea {
+  background: rgba(12, 18, 34, 0.04);
+  color: #0b1220;
+  border-color: rgba(12, 18, 34, 0.16);
+}
 
-/* Message de retour (contact.js) */
-.form-message {
+body.light-theme #contact .contact-form input::placeholder,
+body.light-theme #contact .contact-form textarea::placeholder {
+  color: rgba(11, 18, 32, 0.55);
+}
+
+#contact .contact-form input:focus-visible,
+#contact .contact-form textarea:focus-visible {
+  border-color: rgba(0, 123, 255, 0.65);
+  box-shadow: var(--focus);
+}
+
+#contact .contact-form textarea { resize: vertical; min-height: 140px; }
+
+/* ✅ Honeypot : invisibilité totale */
+#contact .hidden-honeypot,
+#contact .honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Message de retour */
+#contact #form-message {
   margin: 0 0 14px;
   padding: 12px 14px;
   border-radius: 12px;
   border: 1px solid transparent;
   background: transparent;
   color: var(--text);
+  text-align: center;
+  font-weight: 700;
+  animation: fadeSlide 0.4s ease;
 }
-.form-message--success {
+#contact #form-message:empty { display: none; }
+
+#contact .form-message--success {
   border-color: rgba(16, 185, 129, 0.5);
   background: rgba(16, 185, 129, 0.12);
 }
-.form-message--error {
+#contact .form-message--error {
   border-color: rgba(239, 68, 68, 0.55);
   background: rgba(239, 68, 68, 0.12);
 }
 
-.contact-side {
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#contact .contact-side {
   background: linear-gradient(45deg, rgba(0, 123, 255, 0.22), rgba(0, 200, 255, 0.14));
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -728,24 +769,24 @@ body.light-theme .contact-form textarea { background: rgba(12, 18, 34, 0.04); }
   align-content: start;
 }
 
-.contact-side img {
+#contact .contact-side img {
   width: 100%;
   max-height: 320px;
   object-fit: contain;
   border-radius: 14px;
 }
 
-.contact-mini p { color: var(--muted); line-height: 1.6; }
-.contact-mini a {
+#contact .contact-mini p { color: var(--muted); line-height: 1.6; }
+#contact .contact-mini a {
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid var(--text);
+  border-bottom: 1px solid currentColor;
   padding-bottom: 2px;
 }
-.contact-mini a:hover { color: var(--primary); border-color: var(--primary); }
+#contact .contact-mini a:hover { color: var(--primary); }
 
 /* ================================
-   MODALE PROJET (portfolio.js)
+   MODALE PROJET
 ================================ */
 .modal {
   display: none;
@@ -851,22 +892,13 @@ body.light-theme .footer { background: rgba(255, 255, 255, 0.55); }
   .hero-content-box { max-width: 720px; padding: 30px; }
   .hero-image { max-height: 70vh; transform: none; }
 
-  .about-container { grid-template-columns: 1fr; padding: 0 6%; }
-  .timeline,
-  .fallback-grid,
-  .projects-container#portfolioCards,
-  .projects-grid,
-  #skillsTrack,
-  .skills-categories,
-  .contact-grid {
-    padding: 0 6%;
-  }
+  .about-container { grid-template-columns: 1fr; }
+
+  #contact .contact-grid { grid-template-columns: 1fr; padding-inline: clamp(14px, 4vw, 28px); }
 
   .fallback-grid { grid-template-columns: 1fr; }
 
   .skills-categories { grid-template-columns: 1fr; }
-
-  .contact-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -897,13 +929,12 @@ body.light-theme .footer { background: rgba(255, 255, 255, 0.55); }
 
   .nav-cta span { display: none; }
 
-  .soft-skills-container {
-    grid-template-columns: 1fr;
-  }
+  /* ✅ cache le texte du thème sur mobile */
+  .theme-state-label { display: none; }
 
-  .projects-container#portfolioCards {
-    grid-template-columns: 1fr;
-  }
+  .soft-skills-container { grid-template-columns: 1fr; }
+
+  .projects-container#portfolioCards { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

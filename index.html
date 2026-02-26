@@ -274,69 +274,102 @@
       </section>
 
       <!-- CONTACT -->
-      <section id="contact" class="contact" aria-labelledby="contactTitle">
-        <div class="section-head">
-          <h2 id="contactTitle">Contact</h2>
-          <p class="section-subtitle">Une opportunité QA / QA Automation ? Écris-moi, je réponds rapidement.</p>
-        </div>
+<section id="contact" class="contact" aria-labelledby="contactTitle">
+  <div class="section-head">
+    <h2 id="contactTitle">Contact</h2>
+    <p class="section-subtitle">Une opportunité QA / QA Automation ? Écris-moi, je réponds rapidement.</p>
+  </div>
 
-        <div class="contact-grid">
-          <form
-            id="contact-form"
-            class="contact-form"
-            action="https://formsubmit.co/ajax/boukersi.aomar@gmail.com"
-            method="POST"
-            aria-busy="false"
-          >
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_subject" value="Nouveau message — Portfolio QA" />
-            <input type="hidden" name="_template" value="table" />
+  <div class="contact-grid">
+    <form
+      id="contact-form"
+      class="contact-form"
+      action="https://formsubmit.co/ajax/boukersi.aomar@gmail.com"
+      method="POST"
+      aria-busy="false"
+    >
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="Nouveau message — Portfolio QA" />
+      <input type="hidden" name="_template" value="table" />
 
-            <input
-              type="text"
-              name="website"
-              id="website"
-              class="hidden-honeypot"
-              autocomplete="off"
-              tabindex="-1"
-              aria-hidden="true"
-            />
+      <!-- ✅ Honeypot anti-bot (caché via CSS .honeypot) -->
+      <div class="honeypot" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" />
+      </div>
 
-            <div id="form-message" class="form-message" aria-live="polite"></div>
+      <div id="form-message" class="form-message" aria-live="polite"></div>
 
-            <div class="form-group">
-              <label for="name">Nom</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
-            </div>
+      <div class="form-group">
+        <label for="name">Nom <span aria-hidden="true">*</span></label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          placeholder="Ex : Marie Dupont"
+          required
+        />
+        <small class="field-hint" id="hint-name">Indique ton nom complet.</small>
+      </div>
 
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required />
-            </div>
+      <div class="form-group">
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          placeholder="ex : marie.dupont@esn.com"
+          required
+        />
+        <small class="field-hint" id="hint-email">Adresse valide pour que je puisse te répondre.</small>
+      </div>
 
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
+      <!-- ✅ Nouveau champ : Société / ESN -->
+      <div class="form-group">
+        <label for="company">Société / ESN <span aria-hidden="true">*</span></label>
+        <input
+          id="company"
+          name="company"
+          type="text"
+          autocomplete="organization"
+          placeholder="Ex : Capgemini, Sopra Steria, Alten…"
+          required
+        />
+        <small class="field-hint" id="hint-company">Pour identifier l’origine de la prise de contact.</small>
+      </div>
 
-            <button id="contact-submit" class="btn primary" type="submit" aria-label="Envoyer le message">
-              Envoyer <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-            </button>
-          </form>
+      <div class="form-group">
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Décris le contexte : mission, stack/outils, localisation, dates, rythme, TJM…"
+          required
+        ></textarea>
+        <small class="field-hint" id="hint-message">Plus c’est précis, plus je réponds vite.</small>
+      </div>
 
-          <div class="contact-side">
-            <img src="./public_data/assets/robo_image.png" alt="Illustration robot" loading="lazy" />
-            <div class="contact-mini">
-              <p><strong>Email :</strong> <a href="mailto:boukersi.aomar@gmail.com">boukersi.aomar@gmail.com</a></p>
-              <p><strong>Zone :</strong> Île-de-France</p>
-              <p>
-                <strong>Docs :</strong>
-                <a href="./public_data/docs/documentation.md" target="_blank" rel="noopener noreferrer">Documentation</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <button id="contact-submit" class="btn primary" type="submit" aria-label="Envoyer le message">
+        Envoyer <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+      </button>
+    </form>
+
+    <div class="contact-side">
+      <img src="./public_data/assets/robo_image.png" alt="Illustration robot" loading="lazy" />
+      <div class="contact-mini">
+        <p><strong>Email :</strong> <a href="mailto:boukersi.aomar@gmail.com">boukersi.aomar@gmail.com</a></p>
+        <p><strong>Zone :</strong> Île-de-France</p>
+        <p>
+          <strong>Docs :</strong>
+          <a href="./public_data/docs/documentation.md" target="_blank" rel="noopener noreferrer">Documentation</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
     </main>
 
     <footer class="footer">
