@@ -244,12 +244,5 @@
         "description": "Onboarding rapide, montée en compétence en automatisation (Cypress/Playwright) et intérêt pour l’IA appliquée au test."
       }
     ]
-  },
-  {
-    "id": "exp-no-details",
-    "title": "Mission courte (sans détail)",
-    "company": "Exemple",
-    "location": "France",
-    "period": "2022"
   }
 ]

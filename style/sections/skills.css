@@ -7,6 +7,68 @@
   padding: 90px 0;
   overflow: hidden;
 }
+/* =========================================
+   SPAN - Couleur texte (mode sombre / clair)
+   ========================================= */
+
+/* Mode sombre : spans en blanc lumineux */
+.skills-section span,
+.skills-categories span,
+#skills span {
+  color: #f6f8ff !important;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.35);
+}
+
+/* Mode clair : spans lisibles sur fond blanc */
+body.light-theme .skills-section span,
+body.light-theme .skills-categories span,
+body.light-theme #skills span {
+  color: #0c1222 !important;
+  text-shadow: none;
+}
+/* =========================================
+   LISTES — couleur + puces lumineuses
+   ========================================= */
+
+/* Puces par défaut */
+ul {
+  list-style: disc;
+}
+
+/* Couleur lumineuse des puces */
+ul li::marker {
+  color: #80c8ff; /* bleu lumineux */
+}
+
+/* Mode sombre : texte des listes en blanc */
+ul, li {
+  color: #ffffff !important;
+}
+
+/* Mode clair : couleur lisible */
+body.light-theme ul,
+body.light-theme li {
+  color: #0c1222 !important;
+}
+/* =========================================
+   TITRES : Blanc lumineux en mode sombre
+   ========================================= */
+h1, h2, h3, h4, h5, h6 {
+  color: #f6f8ff !important;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.45);
+}
+
+
+/* Mode clair → blanc lumineux adapté */
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6 {
+  color: #0c1222 !important; /* couleur lisible en mode clair */
+  text-shadow: none;
+}
 
 /* Filtres (boutons) */
 #skillsFilters.btn-container {
@@ -143,6 +205,55 @@
   margin: 0;
 }
 
+/*=========================================
+   COMPÉTENCES : Glow lumineux sur les icônes
+   ========================================= */
+
+/* Mode sombre : icônes bleues lumineuses */
+.skills-section i,
+.skills-section svg,
+.skills-section img,
+.skills-categories i,
+.skills-categories svg,
+.skills-categories img {
+  color: #80c8ff !important;
+  filter: drop-shadow(0 0 6px rgba(128, 200, 255, 0.45));
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+/* Mode clair : icônes plus sobres */
+body.light-theme .skills-section i,
+body.light-theme .skills-section svg,
+body.light-theme .skills-section img,
+body.light-theme .skills-categories i,
+body.light-theme .skills-categories svg,
+body.light-theme .skills-categories img {
+  color: #0c1222 !important;
+  filter: none;
+}
+/* Icônes : animation hover premium */
+.skills-section i:hover,
+.skills-section svg:hover,
+.skills-section img:hover,
+.skills-categories i:hover,
+.skills-categories svg:hover,
+.skills-categories img:hover {
+  transform: scale(1.16);
+  filter: drop-shadow(0 0 12px rgba(128, 200, 255, 0.65));
+}
+/* Animation Glow "Respiration" */
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 4px rgba(128, 200, 255, 0.25)); }
+  50% { filter: drop-shadow(0 0 10px rgba(128, 200, 255, 0.55)); }
+  100% { filter: drop-shadow(0 0 4px rgba(128, 200, 255, 0.25)); }
+}
+
+/* Appliquer l’animation seulement en mode sombre */
+.skills-section i,
+.skills-categories i {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 992px) {
   #skillsFilters.btn-container { padding: 0 6%; }
@@ -232,8 +343,6 @@
 #skills .skills-categories .skill-card li {
   margin-bottom: 8px;
 }
-
-/* Responsive */
 @media (max-width: 992px) {
   #skills .skills-categories {
     padding: 0 6%;
