@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <!-- Préchargement du thème pour éviter le flash de thème par défaut -->
     <script>
       (function () {
         try {
@@ -12,15 +13,16 @@
         } catch (_) {}
       })();
     </script>
-
+<!-- Titre et description optimisés pour le SEO -->
     <title>Aomar Boukersi | Consultant QA (Orientation Automatisation)</title>
     <meta
       name="description"
       content="Portfolio de Aomar Boukersi, Consultant QA (orientation automatisation) : tests fonctionnels, stratégie de test, non-régression, API/SQL, D365, projets OpenClassrooms."
     />
-
+<!-- Liens CSS optimisés pour la performance -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
+<!-- préchargement du CSS puis activation en différé pour accélérer le rendu -->
 
     <link rel="preload" as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -29,14 +31,14 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </noscript>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Préconnect pour les polices Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <!-- Préchargement conditionnel des polices Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <link rel="icon" href="./public_data/assets/robo_image.avif" type="image/avif" />
+    <link rel="icon" href="./public_data/assets/robo_image.avif" type="image/avif" /> <!-- Favicon optimisé en AVIF -->
   </head>
 
   <body>
@@ -75,7 +77,7 @@
         aria-label="Changer de thème"
         aria-pressed="false"
         title="Changer de thème"
-      >
+      > <!-- Icône de thème optimisée pour la performance, chargée depuis Font Awesome CDN -->
         <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
         <span class="theme-state-label" aria-live="polite">Dark</span>
       </button>
@@ -143,14 +145,44 @@
         </button>
 
         <!-- Liens desktop dupliqués dans la navbar (desktop uniquement) -->
-        <ul class="nav-links-desktop" aria-label="Navigation desktop" aria-hidden="true">
-          <li><a href="#home">Accueil</a></li>
-          <li><a href="#about">Profil</a></li>
-          <li><a href="#experience">Expériences</a></li>
-          <li><a href="#portfolio">Projets</a></li>
-          <li><a href="#skills">Compétences</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+            <ul class="nav-links-desktop" aria-label="Navigation desktop" aria-hidden="true">
+        <li>
+          <a href="#home">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            Accueil
+          </a>
+        </li>
+        <li>
+          <a href="#about">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+            Profil
+          </a>
+        </li>
+        <li>
+          <a href="#experience">
+            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+            Expériences
+          </a>
+        </li>
+        <li>
+          <a href="#portfolio">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            Projets
+          </a>
+        </li>
+        <li>
+          <a href="#skills">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            Compétences
+          </a>
+        </li>
+        <li>
+          <a href="#contact">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            Contact
+          </a>
+        </li>
+      </ul>
 
         <div class="nav-actions">
           <button
