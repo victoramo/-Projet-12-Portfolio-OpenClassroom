@@ -4,72 +4,174 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Préchargement du thème pour éviter le flash de thème par défaut -->
+    <!-- Thème inline — SYNCHRONE INTENTIONNEL (anti-flash) -->
     <script>
       (function () {
         try {
           var s = localStorage.getItem("theme");
-          if (s === "light" || s === "dark") document.documentElement.dataset.theme = s;
+          if (s === "light" || s === "dark") {
+            document.documentElement.dataset.theme = s;
+            if (s === "light") document.documentElement.classList.add("light-theme-preload");
+          }
         } catch (_) {}
       })();
     </script>
-<!-- Titre et description optimisés pour le SEO -->
+
     <title>Aomar Boukersi | Consultant QA (Orientation Automatisation)</title>
     <meta
       name="description"
       content="Portfolio de Aomar Boukersi, Consultant QA (orientation automatisation) : tests fonctionnels, stratégie de test, non-régression, API/SQL, D365, projets OpenClassrooms."
     />
-<!-- Liens CSS optimisés pour la performance -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./style.css" />
-<!-- préchargement du CSS puis activation en différé pour accélérer le rendu -->
 
-    <link rel="preload" as="style"
+    <!-- ✅ PRELOAD LCP — AVIF en priorité absolue -->
+    <link
+      rel="preload"
+      as="image"
+      href="./public_data/assets/portfolio.avif"
+      fetchpriority="high"
+      type="image/avif"
+    />
+
+    <!-- ✅ CSS critique inline (above-the-fold) — évite le FOUC -->
+    <style>
+      :root { --bg: #000510; --text: #e8eaf6; }
+      [data-theme="light"] { --bg: #f5f7ff; --text: #0c1222; }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'Outfit', 'Poppins', system-ui, sans-serif;
+        min-height: 100vh;
+      }
+      .skip-link {
+        position: absolute; left: -9999px; top: 0;
+        background: #000; color: #fff; padding: .5rem 1rem; z-index: 9999;
+      }
+      .skip-link:focus { left: 0; }
+      /* Réserve d'espace LCP — évite le layout shift */
+      .hero-image-container {
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .sr-only {
+        position: absolute; width: 1px; height: 1px;
+        padding: 0; margin: -1px; overflow: hidden;
+        clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+      }
+    </style>
+
+    <!-- ✅ style.css — non-bloquant -->
+    <link rel="preload" as="style" href="./style.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./style.css"></noscript>
+
+    <!-- ✅ Bootstrap CSS — non-bloquant -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    </noscript>
+
+    <!-- ✅ Font Awesome woff2 — preload des fichiers critiques -->
+    <link rel="preload" as="font" type="font/woff2"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2"
+      crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2"
+      crossorigin="anonymous" />
+
+    <!-- ✅ Font Awesome CSS — non-bloquant -->
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      onload="this.onload=null;this.rel='stylesheet'">
+      media="print"
+      onload="this.media='all'"
+    />
     <noscript>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     </noscript>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" /> <!-- Préconnect pour les polices Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> <!-- Préchargement conditionnel des polices Google Fonts -->
+    <!-- ✅ Google Fonts — non-bloquant, poids réduits -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    </noscript>
 
-    <link rel="icon" href="./public_data/assets/robo_image.avif" type="image/avif" /> <!-- Favicon optimisé en AVIF -->
+    <!-- Favicon -->
+    <link rel="icon" href="./public_data/assets/robo_image.avif" type="image/avif" />
   </head>
 
   <body>
-    <script src="./script/theme-toggle.js"></script>
+    <!-- Thème body — SYNCHRONE INTENTIONNEL -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme") || "dark";
+          document.documentElement.dataset.theme = t;
+          if (t === "light") {
+            document.documentElement.classList.add("light-theme-preload");
+            document.addEventListener("DOMContentLoaded", function () {
+              document.body && document.body.classList.add("light-theme");
+            });
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <script src="./script/theme-toggle.js" defer></script>
     <script>
       if (document.documentElement.dataset.theme === "light") {
         document.body.classList.add("light-theme");
       }
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS — defer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <a class="skip-link" href="#main">Aller au contenu</a>
     <div id="stars" aria-hidden="true"></div>
 
-    <!-- ✅ LOGO FLOTTANT — fixe, toujours visible, déclencheur du rail en responsive -->
-    <a class="floating-logo" href="#home" aria-label="Retour à l'accueil">
-      <img
-        src="./public_data/assets/logo.gif"
-        alt="Logo Aomar Boukersi"
-        class="nav-logo"
-        width="160"
-        height="70"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
+    <!--
+      ═══════════════════════════════════════════════════════
+      LOGO FLOTTANT
+      ═══════════════════════════════════════════════════════
+    -->
+    <a
+      id="floatingLogo"
+      class="floating-logo"
+      href="#home"
+      aria-label="Retour à l'accueil / Ouvrir le menu"
+      role="button"
+    >
+      <video
+        autoplay muted loop playsinline preload="metadata"
+        width="74" height="74"
+        class="logo-video"
+        aria-hidden="true"
+      >
+        <source src="./public_data/assets/logo.mp4" type="video/mp4">
+      </video>
+      <span class="sr-only">Retour à l'accueil</span>
     </a>
 
-    <!-- ✅ ACTIONS FLOTTANTES — visibles uniquement en responsive ≤ 1286px -->
-    <div class="nav-actions-float" aria-label="Actions rapides">
+    <!--
+      ═══════════════════════════════════════════════════════
+      ACTIONS FLOTTANTES (responsive ≤ 1286px)
+      ═══════════════════════════════════════════════════════
+    -->
+    <div class="nav-actions-float" aria-label="Actions rapides" role="toolbar">
       <button
         id="themeToggleFloat"
         class="theme-toggle-btn"
@@ -77,114 +179,104 @@
         aria-label="Changer de thème"
         aria-pressed="false"
         title="Changer de thème"
-      > <!-- Icône de thème optimisée pour la performance, chargée depuis Font Awesome CDN -->
+      >
         <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
         <span class="theme-state-label" aria-live="polite">Dark</span>
       </button>
-      <a class="nav-cta" href="./public_data/CV/cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger CV">
+      <a
+        class="nav-cta"
+        href="./public_data/CV/cv.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Télécharger le CV (nouvelle fenêtre)"
+      >
         <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
         <span>Télécharger CV</span>
       </a>
     </div>
 
-    <!-- ✅ RAIL D'ICÔNES — sorti de .site-navbar, fixe dans le body
-         Visible en responsive ≤ 1286px via .nav-active (logo click)
-         Caché en desktop (géré par CSS) -->
-    <ul id="navLinks" class="nav-links" aria-label="Navigation principale">
-      <li>
-        <a href="#home" aria-label="Accueil">
-          <i class="fa-solid fa-house" aria-hidden="true"></i>
-          <span class="nav-text">Accueil</span>
-        </a>
-      </li>
-      <li>
-        <a href="#about" aria-label="Profil">
-          <i class="fa-solid fa-user" aria-hidden="true"></i>
-          <span class="nav-text">Profil</span>
-        </a>
-      </li>
-      <li>
-        <a href="#experience" aria-label="Expériences">
-          <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-          <span class="nav-text">Expériences</span>
-        </a>
-      </li>
-      <li>
-        <a href="#portfolio" aria-label="Projets">
-          <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-          <span class="nav-text">Projets</span>
-        </a>
-      </li>
-      <li>
-        <a href="#skills" aria-label="Compétences">
-          <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
-          <span class="nav-text">Compétences</span>
-        </a>
-      </li>
-      <li>
-        <a href="#contact" aria-label="Contact">
-          <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-          <span class="nav-text">Contact</span>
-        </a>
-      </li>
-    </ul>
+    <!--
+      ═══════════════════════════════════════════════════════
+      RAIL D'ICÔNES (responsive ≤ 1286px)
+      ✅ <ul> enveloppé dans <nav> — role="navigation" retiré du <ul>
+      ═══════════════════════════════════════════════════════
+    -->
+    <nav aria-label="Navigation principale (rail)">
+      <ul id="navLinks" class="nav-links">
+        <li>
+          <a href="#home" aria-label="Accueil">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span class="nav-text" aria-hidden="true">Accueil</span>
+          </a>
+        </li>
+        <li>
+          <a href="#about" aria-label="Profil">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+            <span class="nav-text" aria-hidden="true">Profil</span>
+          </a>
+        </li>
+        <li>
+          <a href="#experience" aria-label="Expériences">
+            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+            <span class="nav-text" aria-hidden="true">Expériences</span>
+          </a>
+        </li>
+        <li>
+          <a href="#portfolio" aria-label="Projets">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            <span class="nav-text" aria-hidden="true">Projets</span>
+          </a>
+        </li>
+        <li>
+          <a href="#skills" aria-label="Compétences">
+            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+            <span class="nav-text" aria-hidden="true">Compétences</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contact" aria-label="Contact">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span class="nav-text" aria-hidden="true">Contact</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    <!-- ✅ NAVBAR DESKTOP — visible uniquement > 1286px -->
-    <header class="site-header">
-      <nav class="site-navbar nav-expanded" aria-label="Navigation principale">
+    <!--
+      ═══════════════════════════════════════════════════════
+      NAVBAR DESKTOP (> 1286px)
+      ═══════════════════════════════════════════════════════
+    -->
+    <header class="site-header" role="banner">
+      <nav class="site-navbar nav-expanded" aria-label="Navigation principale (desktop)">
+
         <button
           class="burger"
           type="button"
           aria-label="Ouvrir le menu"
           aria-expanded="false"
           aria-controls="navLinks"
+          hidden
         >
           <span class="line1" aria-hidden="true"></span>
           <span class="line2" aria-hidden="true"></span>
           <span class="line3" aria-hidden="true"></span>
         </button>
 
-        <!-- Liens desktop dupliqués dans la navbar (desktop uniquement) -->
-            <ul class="nav-links-desktop" aria-label="Navigation desktop" aria-hidden="true">
-        <li>
-          <a href="#home">
-            <i class="fa-solid fa-house" aria-hidden="true"></i>
-            Accueil
-          </a>
-        </li>
-        <li>
-          <a href="#about">
-            <i class="fa-solid fa-user" aria-hidden="true"></i>
-            Profil
-          </a>
-        </li>
-        <li>
-          <a href="#experience">
-            <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
-            Expériences
-          </a>
-        </li>
-        <li>
-          <a href="#portfolio">
-            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-            Projets
-          </a>
-        </li>
-        <li>
-          <a href="#skills">
-            <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
-            Compétences
-          </a>
-        </li>
-        <li>
-          <a href="#contact">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            Contact
-          </a>
-        </li>
-      </ul>
+        <!--
+          ✅ FIX ACCESSIBILITÉ : role="presentation" supprimé
+             aria-hidden="true" suffit — tabindex="-1" exclut du focus clavier
+        -->
+        <ul class="nav-links-desktop" aria-hidden="true">
+          <li><a href="#home" tabindex="-1"><i class="fa-solid fa-house" aria-hidden="true"></i> Accueil</a></li>
+          <li><a href="#about" tabindex="-1"><i class="fa-solid fa-user" aria-hidden="true"></i> Profil</a></li>
+          <li><a href="#experience" tabindex="-1"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Expériences</a></li>
+          <li><a href="#portfolio" tabindex="-1"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Projets</a></li>
+          <li><a href="#skills" tabindex="-1"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> Compétences</a></li>
+          <li><a href="#contact" tabindex="-1"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a></li>
+        </ul>
 
-        <div class="nav-actions">
+        <div class="nav-actions" role="toolbar" aria-label="Actions desktop">
           <button
             id="themeToggle"
             class="theme-toggle-btn"
@@ -196,8 +288,13 @@
             <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
             <span id="themeState" class="theme-state-label" aria-live="polite">Dark</span>
           </button>
-
-          <a class="nav-cta" href="./public_data/CV/cv.pdf" target="_blank" rel="noopener noreferrer" aria-label="Télécharger CV">
+          <a
+            class="nav-cta"
+            href="./public_data/CV/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Télécharger le CV (nouvelle fenêtre)"
+          >
             <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             <span>Télécharger CV</span>
           </a>
@@ -206,7 +303,8 @@
     </header>
 
     <main id="main">
-      <!-- HERO -->
+
+      <!-- ── HERO ── -->
       <section id="home" class="hero" aria-labelledby="heroTitle">
         <div class="hero-content-box">
           <p class="kicker">Consultant QA • Orientation Automatisation</p>
@@ -226,32 +324,54 @@
               Télécharger mon CV <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i>
             </a>
           </div>
-          <div class="hero-socials" aria-label="Réseaux">
-            <a class="btn-icon" href="mailto:boukersi.aomar@gmail.com" aria-label="Email">
+          <div class="hero-socials" aria-label="Réseaux sociaux">
+            <a class="btn-icon" href="mailto:boukersi.aomar@gmail.com" aria-label="Envoyer un email">
               <i class="fa-solid fa-at" aria-hidden="true"></i>
+              <span class="sr-only">Email</span>
             </a>
-            <a class="btn-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a class="btn-icon" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn (nouvelle fenêtre)">
               <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+              <span class="sr-only">LinkedIn</span>
             </a>
-            <a class="btn-icon" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a class="btn-icon" href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub (nouvelle fenêtre)">
               <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <span class="sr-only">GitHub</span>
             </a>
           </div>
         </div>
-        <div class="hero-image-container">
-          <img
-            src="./public_data/assets/portfolio.webp"
-            alt="Illustration représentant un consultant QA"
-            class="hero-image"
-            width="528" height="788"
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
+
+        <!--
+          ✅ LCP IMAGE — AVIF + fallback WebP
+          - fetchpriority="high" + loading="eager" + decoding="sync"
+          - PAS de loading="lazy" sur le LCP
+        -->
+        <div class="hero-image-container" aria-hidden="true">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="./public_data/assets/portfolio.avif"
+            />
+            <source
+              type="image/webp"
+              srcset="./public_data/assets/portfolio-m.webp 400w,
+                      ./public_data/assets/portfolio.webp 640w"
+              sizes="(max-width: 600px) 400px, 532px"
+            />
+            <img
+              src="./public_data/assets/portfolio.webp"
+              width="480"
+              height="720"
+              alt="Photo de présentation d'Aomar Boukersi"
+              fetchpriority="high"
+              loading="eager"
+              decoding="sync"
+              style="aspect-ratio:480/720;width:auto;height:auto;max-height:86vh;object-fit:contain;"
+            />
+          </picture>
         </div>
       </section>
 
-      <!-- ABOUT -->
+      <!-- ── ABOUT ── -->
       <section id="about" class="about" aria-labelledby="aboutTitle">
         <div class="section-head">
           <h2 id="aboutTitle">Profil</h2>
@@ -299,43 +419,54 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
+      <!-- ── EXPERIENCE ── -->
       <section id="experience" class="experience" aria-labelledby="experienceTitle">
         <div class="section-head">
           <h2 id="experienceTitle">Expériences</h2>
           <p class="section-subtitle">Focus : transformation SI, web, mobile, et industrialisation du suivi QA.</p>
         </div>
-        <div id="experienceTimeline" class="timeline" aria-label="Timeline des expériences"></div>
+        <div id="experienceTimeline" class="timeline" aria-label="Timeline des expériences" aria-live="polite"></div>
       </section>
 
-      <!-- PROJECTS -->
+      <!-- ── PROJECTS ── -->
       <section id="portfolio" class="projects" aria-labelledby="projectsTitle">
         <div class="section-head">
           <h2 id="projectsTitle">Projets</h2>
         </div>
-        <div id="portfolioFilters" class="btn-container" aria-label="Filtres projets"></div>
-        <div class="projects-container" id="portfolioCards" aria-live="polite">
-          <p class="text-center m-0">Loading — Chargement des projets…</p>
+        <div id="portfolioFilters" class="btn-container" aria-label="Filtres projets" role="group"></div>
+        <div
+          class="projects-container"
+          id="portfolioCards"
+          aria-live="polite"
+          aria-label="Liste des projets"
+        >
+          <p class="text-center m-0" aria-busy="true">Chargement des projets…</p>
         </div>
       </section>
       <noscript>
         <p class="text-center mt-3">
           JavaScript est désactivé : impossible d'afficher les projets dynamiques.
-          Consultez mon GitHub pour voir mes réalisations.
+          Consultez mon <a href="https://github.com/" rel="noopener noreferrer">GitHub</a> pour voir mes réalisations.
         </p>
       </noscript>
 
-      <!-- SKILLS -->
+      <!-- ── SKILLS ── -->
       <section id="skills" class="skills-section" aria-labelledby="skillsTitle">
         <div class="section-head">
           <h2 id="skillsTitle">Compétences</h2>
         </div>
-        <div id="skillsFilters" class="btn-container" aria-label="Filtres compétences"></div>
-        <div class="skills-marquee" id="skillsMarquee">
-          <div class="skills-track" id="skillsTrack" aria-label="Compétences en défilement"></div>
+        <div id="skillsFilters" class="btn-container" aria-label="Filtres compétences" role="group"></div>
+        <div class="skills-marquee" id="skillsMarquee" aria-hidden="true">
+          <div class="skills-track" id="skillsTrack"></div>
         </div>
-        <div class="skills-grid" id="skillsGrid" hidden aria-label="Compétences filtrées"></div>
-        <div class="skills-categories">
+        <div
+          class="skills-grid"
+          id="skillsGrid"
+          hidden
+          aria-label="Compétences filtrées"
+          aria-live="polite"
+        ></div>
+        <div class="skills-categories" aria-label="Catégories de compétences">
           <div class="skill-card">
             <h3>QA &amp; Test</h3>
             <ul>
@@ -363,7 +494,7 @@
         </div>
       </section>
 
-      <!-- CONTACT -->
+      <!-- ── CONTACT ── -->
       <section id="contact" class="contact" aria-labelledby="contactTitle">
         <div class="section-head">
           <h2 id="contactTitle">Contact</h2>
@@ -376,41 +507,58 @@
             action="https://formsubmit.co/ajax/boukersi.aomar@gmail.com"
             method="POST"
             aria-busy="false"
+            novalidate
           >
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_subject" value="Nouveau message — Portfolio QA" />
             <input type="hidden" name="_template" value="table" />
-            <div class="honeypot" aria-hidden="true">
+
+            <div class="honeypot hidden-honeypot" aria-hidden="true">
               <label for="website">Website</label>
               <input type="text" name="website" id="website" autocomplete="off" tabindex="-1" />
             </div>
-            <div id="form-message" class="form-message" aria-live="polite"></div>
+
+            <div id="form-message" class="form-message" role="status" aria-live="polite" aria-atomic="true"></div>
+
             <div class="form-group">
               <label for="name">Nom <span aria-hidden="true">*</span></label>
-              <input id="name" name="name" type="text" autocomplete="name" placeholder="Ex : Marie Dupont" required />
+              <input id="name" name="name" type="text" autocomplete="name"
+                placeholder="Ex : Marie Dupont" required aria-describedby="hint-name" />
               <small class="field-hint" id="hint-name">Indique ton nom complet.</small>
             </div>
             <div class="form-group">
               <label for="email">Email <span aria-hidden="true">*</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="ex : marie.dupont@esn.com" required />
+              <input id="email" name="email" type="email" autocomplete="email"
+                placeholder="ex : marie.dupont@esn.com" required aria-describedby="hint-email" />
               <small class="field-hint" id="hint-email">Adresse valide pour que je puisse te répondre.</small>
             </div>
             <div class="form-group">
               <label for="company">Société / ESN <span aria-hidden="true">*</span></label>
-              <input id="company" name="company" type="text" autocomplete="organization" placeholder="Ex : Capgemini, Sopra Steria, Alten…" required />
+              <input id="company" name="company" type="text" autocomplete="organization"
+                placeholder="Ex : Capgemini, Sopra Steria, Alten…" required aria-describedby="hint-company" />
               <small class="field-hint" id="hint-company">Pour identifier l'origine de la prise de contact.</small>
             </div>
             <div class="form-group">
               <label for="message">Message <span aria-hidden="true">*</span></label>
-              <textarea id="message" name="message" rows="5" placeholder="Décris le contexte : mission, stack/outils, localisation, dates, rythme, TJM…" required></textarea>
+              <textarea id="message" name="message" rows="5"
+                placeholder="Décris le contexte : mission, stack/outils, localisation, dates, rythme, TJM…"
+                required aria-describedby="hint-message"></textarea>
               <small class="field-hint" id="hint-message">Plus c'est précis, plus je réponds vite.</small>
             </div>
             <button id="contact-submit" class="btn primary" type="submit" aria-label="Envoyer le message">
               Envoyer <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
             </button>
           </form>
-          <div class="contact-side">
-            <img src="./public_data/assets/robo_image.avif" alt="Illustration robot" loading="lazy" />
+
+          <aside class="contact-side" aria-label="Informations de contact">
+            <img
+              src="./public_data/assets/robo_image.avif"
+              alt="Illustration robot"
+              loading="lazy"
+              decoding="async"
+              width="320" height="320"
+              style="width:100%;height:auto;max-height:320px;object-fit:contain;display:block;"
+            />
             <div class="contact-mini">
               <p><strong>Email :</strong> <a href="mailto:boukersi.aomar@gmail.com">boukersi.aomar@gmail.com</a></p>
               <p><strong>Zone :</strong> Île-de-France</p>
@@ -419,46 +567,52 @@
                 <a href="./public_data/docs/documentation.md" target="_blank" rel="noopener noreferrer">Documentation</a>
               </p>
             </div>
-          </div>
+          </aside>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <!-- ── FOOTER ── -->
+    <footer class="footer" role="contentinfo">
       <p>© 2026 — Aomar Boukersi • Consultant QA (orientation automatisation)</p>
-      <div class="footer-icons" aria-label="Réseaux">
-        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+      <nav class="footer-icons" aria-label="Réseaux sociaux">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn (nouvelle fenêtre)">
           <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          <span class="sr-only">LinkedIn</span>
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub (nouvelle fenêtre)">
           <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span class="sr-only">GitHub</span>
         </a>
-        <a href="mailto:boukersi.aomar@gmail.com" aria-label="Email">
+        <a href="mailto:boukersi.aomar@gmail.com" aria-label="Envoyer un email">
           <i class="fa-solid fa-at" aria-hidden="true"></i>
+          <span class="sr-only">Email</span>
         </a>
-      </div>
+      </nav>
     </footer>
 
-    <script src="./script/navbar.js"></script>
-    <script src="./script/experiences.js"></script>
+    <!-- ✅ SCRIPTS — tous en defer -->
+    <script src="./script/navbar.js" defer></script>
+    <script src="./script/experiences.js" defer></script>
+    <script src="./script/skills.js" defer></script>
+    <script src="./script/portfolio.js" defer></script>
+    <script src="./script/contact.js" defer></script>
 
+    <!-- Chargement différé de skills.css -->
     <script>
-      (function () {
-        const skillsSection = document.getElementById("skills");
-        if (!skillsSection) return;
-        const href = "./style/sections/skills.css";
-        const alreadyLoaded =
-          document.querySelector(`link[rel="stylesheet"][href="${href}"]`) ||
-          Array.from(document.styleSheets).some((s) => s.href && s.href.includes("skills.css"));
+      document.addEventListener("DOMContentLoaded", function () {
+        var href = "./style/sections/skills.css";
+        var alreadyLoaded =
+          document.querySelector('link[rel="stylesheet"][href="' + href + '"]') ||
+          Array.from(document.styleSheets).some(function (s) {
+            return s.href && s.href.includes("skills.css");
+          });
         if (alreadyLoaded) return;
-        const link = document.createElement("link");
+        var link = document.createElement("link");
         link.rel = "stylesheet";
         link.href = href;
         document.head.appendChild(link);
-      })();
+      });
     </script>
-    <script src="./script/skills.js"></script>
-    <script src="./script/portfolio.js"></script>
-    <script src="./script/contact.js"></script>
   </body>
 </html>
