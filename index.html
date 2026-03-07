@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Thème inline — SYNCHRONE INTENTIONNEL (anti-flash) -->
+    <!-- ✅ Anti-flash thème — SYNCHRONE INTENTIONNEL -->
     <script>
       (function () {
         try {
@@ -23,18 +23,26 @@
       content="Portfolio de Aomar Boukersi, Consultant QA (orientation automatisation) : tests fonctionnels, stratégie de test, non-régression, API/SQL, D365, projets OpenClassrooms."
     />
 
-    <!-- ✅ PRELOAD LCP — AVIF en priorité absolue -->
+    <!-- ✅ PRELOAD LCP — image hero en priorité absolue -->
     <link
       rel="preload"
       as="image"
-      href="./public_data/assets/portfolio.avif"
+      href="./public_data/assets/portfolio.webp"
       fetchpriority="high"
-      type="image/avif"
+      type="image/webp"
     />
+
+    <!-- ✅ PRELOAD fonts woff2 critiques (évite FOIT) -->
+    <link rel="preload" as="font" type="font/woff2"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2"
+      crossorigin="anonymous" />
+    <link rel="preload" as="font" type="font/woff2"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2"
+      crossorigin="anonymous" />
 
     <!-- ✅ CSS critique inline (above-the-fold) — évite le FOUC -->
     <style>
-      :root { --bg: #000510; --text: #e8eaf6; }
+      :root { --bg: #000510; --text: #e8eaf6; --nav-h: 76px; }
       [data-theme="light"] { --bg: #f5f7ff; --text: #0c1222; }
       *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
@@ -43,6 +51,8 @@
         color: var(--text);
         font-family: 'Outfit', 'Poppins', system-ui, sans-serif;
         min-height: 100vh;
+        overflow-x: hidden;
+        padding-top: var(--nav-h);
       }
       .skip-link {
         position: absolute; left: -9999px; top: 0;
@@ -71,17 +81,7 @@
     <link rel="preload" as="style" href="./style.css" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="./style.css"></noscript>
 
-    <!-- ✅ Bootstrap CSS — SUPPRIMÉ (remplacé par utilities inline ci-dessus) -->
-
-    <!-- ✅ Font Awesome woff2 — preload des fichiers critiques -->
-    <link rel="preload" as="font" type="font/woff2"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2"
-      crossorigin="anonymous" />
-    <link rel="preload" as="font" type="font/woff2"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-brands-400.woff2"
-      crossorigin="anonymous" />
-
-    <!-- ✅ Font Awesome — subset solid + brands uniquement (économie ~7 KiB vs all.min.css) -->
+    <!-- ✅ Font Awesome — subset solid + brands uniquement (non-bloquant) -->
     <link rel="preload" as="style"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/fontawesome.min.css"
       onload="this.onload=null;this.rel='stylesheet'">
@@ -97,7 +97,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/brands.min.css">
     </noscript>
 
-    <!-- ✅ Google Fonts — non-bloquant, poids réduits -->
+    <!-- ✅ Google Fonts — non-bloquant -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -111,11 +111,11 @@
     </noscript>
 
     <!-- Favicon -->
-    <link rel="icon" href="./public_data/assets/robo_image.avif" type="image/avif" />
+    <link rel="icon" href="./public_data/assets/robo_image-480.webp" type="image/webp" />
   </head>
 
   <body>
-    <!-- Thème body — SYNCHRONE INTENTIONNEL -->
+    <!-- ✅ Thème body — SYNCHRONE INTENTIONNEL (anti-flash) -->
     <script>
       (function () {
         try {
@@ -136,8 +136,6 @@
         document.body.classList.add("light-theme");
       }
     </script>
-
-    <!-- ✅ Bootstrap JS — SUPPRIMÉ (aucun composant Bootstrap JS utilisé) -->
 
     <a class="skip-link" href="#main">Aller au contenu</a>
     <div id="stars" aria-hidden="true"></div>
@@ -197,7 +195,6 @@
     <!--
       ═══════════════════════════════════════════════════════
       RAIL D'ICÔNES (responsive ≤ 1286px)
-      ✅ <ul> enveloppé dans <nav> — role="navigation" retiré du <ul>
       ═══════════════════════════════════════════════════════
     -->
     <nav aria-label="Navigation principale (rail)">
@@ -338,20 +335,17 @@
         <div class="hero-image-container" aria-hidden="true">
           <picture>
             <source
-              type="image/avif"
-              srcset="./public_data/assets/portfolio.avif"
-            />
-            <source
               type="image/webp"
-              srcset="./public_data/assets/portfolio-m.webp 400w,
-                      ./public_data/assets/portfolio.webp 640w"
-              sizes="(max-width: 600px) 400px, 532px"
+              media="(max-width: 600px)"
+              srcset="./public_data/assets/portfolio-m.webp 400w"
+              sizes="400px"
             />
             <img
-              src="./public_data/assets/portfolio.avif"
+              src="./public_data/assets/portfolio.webp"
               width="480"
               height="720"
               alt="Photo de présentation d'Aomar Boukersi"
+              class="hero-image"
               fetchpriority="high"
               loading="eager"
               decoding="sync"
@@ -450,11 +444,11 @@
           <div class="skills-track" id="skillsTrack"></div>
         </div>
         <div
-        class="skills-grid"
-        id="skillsGrid"
-        hidden
-        role="list"
-        aria-label="Compétences filtrées"
+          class="skills-grid"
+          id="skillsGrid"
+          hidden
+          role="list"
+          aria-label="Compétences filtrées"
         ></div>
         <div class="skills-categories" aria-label="Catégories de compétences">
           <div class="skill-card">
@@ -542,7 +536,7 @@
 
           <aside class="contact-side" aria-label="Informations de contact">
             <img
-              src="./public_data/assets/robo_image.avif"
+              src="./public_data/assets/robo_image-480.webp"
               alt="Illustration robot"
               loading="lazy"
               decoding="async"
@@ -588,7 +582,7 @@
     <script src="./script/portfolio.js" defer></script>
     <script src="./script/contact.js" defer></script>
 
-    <!-- Chargement différé de skills.css -->
+    <!-- ✅ skills.css — chargement différé au DOMContentLoaded -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         var href = "./style/sections/skills.css";
